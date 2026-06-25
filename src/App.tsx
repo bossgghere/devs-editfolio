@@ -40,16 +40,7 @@ export default function App() {
 
 
 
-        {/* Floating Minimal Widget 3: Compact Timeline */}
-        <div className="absolute left-[2%] bottom-[22%] hidden xl:block bg-white border-2 border-brand-dark p-3 rounded-2xl shadow-[3px_3px_0px_#1a1614] -rotate-3 hover:rotate-0 transition-transform duration-300 w-36 pointer-events-none select-none z-10">
-          <div className="flex items-center gap-1 mb-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-            <span className="text-[6px] font-mono font-black text-zinc-400 uppercase tracking-widest">V1</span>
-          </div>
-          <div className="h-3.5 bg-brand-cream/35 border border-brand-dark/15 rounded-md flex items-center px-1">
-            <div className="w-2/3 h-2 bg-brand-accent/20 border border-brand-accent/35 rounded-xs" />
-          </div>
-        </div>
+
 
         {/* Floating Minimal Widget: Long Timeline Track (Top Middle) */}
         <div className="absolute left-[36%] top-[10%] hidden xl:block bg-white border-2 border-brand-dark p-3.5 rounded-2xl shadow-[4px_4px_0px_#1a1614] -rotate-1 hover:rotate-0 transition-transform duration-300 w-80 pointer-events-none select-none z-10">
@@ -95,59 +86,6 @@ export default function App() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Floating Minimal Widget 4: Color LUT Circle */}
-        <div className="absolute right-[5%] top-[15%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2.5 rounded-2xl shadow-[3px_3px_0px_#1a1614] rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
-          <div className="w-6.5 h-6.5 rounded-full bg-gradient-to-tr from-rose-500 via-emerald-400 to-sky-400 border border-brand-dark/30 animate-[spin_10s_linear_infinite]" />
-          <span className="text-[6px] font-mono font-black text-zinc-400 uppercase tracking-widest mt-0.5">LUT</span>
-        </div>
-
-
-
-        {/* Floating Minimal Widget 6: RGB parade graph */}
-        <div className="absolute right-[2%] bottom-[22%] hidden xl:block bg-white border-2 border-brand-dark p-3 rounded-2xl shadow-[3px_3px_0px_#1a1614] rotate-3 hover:rotate-0 transition-transform duration-300 w-32 pointer-events-none select-none z-10">
-          <div className="h-8 bg-zinc-950 rounded-lg flex items-end justify-between p-1 border border-brand-dark/10">
-            <div className="w-[28%] h-full flex items-end gap-[0.5px] opacity-80">
-              <span className="w-[30%] h-[30%] bg-rose-500" />
-              <span className="w-[30%] h-[65%] bg-rose-500" />
-            </div>
-            <div className="w-[28%] h-full flex items-end gap-[0.5px] opacity-80">
-              <span className="w-[30%] h-[40%] bg-emerald-500" />
-              <span className="w-[30%] h-[70%] bg-emerald-500" />
-            </div>
-            <div className="w-[28%] h-full flex items-end gap-[0.5px] opacity-80">
-              <span className="w-[30%] h-[20%] bg-sky-500" />
-              <span className="w-[30%] h-[60%] bg-sky-500" />
-            </div>
-          </div>
-        </div>
-
-        {/* Floating Minimal Widget 7: Keyframe Diamond Tracker */}
-        <div className="absolute left-[7%] top-[60%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2 rounded-xl shadow-[3px_3px_0px_#1a1614] -rotate-3 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
-          <div className="flex items-center gap-1.5 h-3">
-            <span className="w-1.5 h-1.5 bg-brand-accent rotate-45 border border-brand-dark/20" />
-            <span className="w-6 h-[2px] bg-brand-dark/15" />
-            <span className="w-1.5 h-1.5 bg-brand-accent rotate-45 border border-brand-dark/20" />
-          </div>
-          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest mt-0.5">Key</span>
-        </div>
-
-        {/* Floating Minimal Widget 8: Audio Pan Indicator */}
-        <div className="absolute right-[7%] top-[30%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2 rounded-xl shadow-[3px_3px_0px_#1a1614] rotate-3 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
-          <div className="w-8 h-1.5 bg-brand-cream/80 border border-brand-dark/15 rounded-full relative flex items-center justify-center">
-            <span className="absolute w-2.5 h-2.5 rounded-full bg-brand-accent border border-brand-dark" />
-          </div>
-          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest mt-0.5">Pan</span>
-        </div>
-
-        {/* Floating Minimal Widget 9: Timeline Flag Marker */}
-        <div className="absolute right-[5%] bottom-[35%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2.5 rounded-xl shadow-[3px_3px_0px_#1a1614] -rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-brand-accent">
-            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-            <line x1="4" y1="22" x2="4" y2="15" />
-          </svg>
-          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest mt-0.5">Mark</span>
         </div>
 
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 relative z-10">
