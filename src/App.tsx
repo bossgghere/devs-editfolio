@@ -45,12 +45,52 @@ export default function App() {
 
 
 
-              {/* Core Bio Paragraph */}
-              <div className="bg-white/60 backdrop-blur-sm border border-zinc-200/80 p-6 sm:p-8 rounded-3xl space-y-4 shadow-sm relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-2 h-full bg-brand-dark" />
-                <p className="text-sm font-sans text-zinc-700 leading-relaxed font-medium uppercase tracking-tight">
-                  I AM A CREATIVE VIDEO EDITOR DEDICATED TO TRANSFORMING IDEAS INTO HIGH-QUALITY VISUAL STORIES. WITH TWO YEARS OF EXPERIENCE, I BRING ADVANCED PACING, SOUND DESIGN, AND COLOR GRADING TO DELIVER POLISHED, HIGH-IMPACT VIDEOS FOR DIGITAL PLATFORMS AND BRANDS.
-                </p>
+              {/* Enhanced Bio Dashboard Card */}
+              <div className="bg-white border-2 border-brand-dark p-6 sm:p-8 rounded-3xl shadow-[6px_6px_0px_#1a1614] hover:shadow-[3px_3px_0px_#1a1614] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-300 relative overflow-hidden space-y-6">
+                
+                {/* Dotted technical background design inside card */}
+                <div className="absolute inset-0 opacity-[0.06] pointer-events-none bg-[radial-gradient(#1a1614_1px,transparent_1px)] [background-size:16px_16px]" />
+                
+                {/* Card Status Line */}
+                <div className="flex items-center justify-between border-b border-brand-dark/10 pb-3 relative z-10 select-none">
+                  <span className="text-[8px] font-mono text-zinc-500 font-bold uppercase tracking-widest flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
+                    CREATIVE LOG // PROFILE
+                  </span>
+                  <span className="text-[8px] font-mono text-brand-gray font-bold">VOL. 02 // 2026</span>
+                </div>
+
+                {/* Main Bio Text */}
+                <div className="relative z-10">
+                  <p className="text-sm font-sans text-brand-dark leading-relaxed font-bold uppercase tracking-tight">
+                    I AM A CREATIVE VIDEO EDITOR DEDICATED TO TRANSFORMING IDEAS INTO HIGH-QUALITY VISUAL STORIES. WITH TWO YEARS OF EXPERIENCE, I BRING ADVANCED PACING, SOUND DESIGN, AND COLOR GRADING TO DELIVER POLISHED, HIGH-IMPACT VIDEOS FOR DIGITAL PLATFORMS AND BRANDS.
+                  </p>
+                </div>
+
+                {/* Additional workflow data row */}
+                <div className="pt-4 border-t border-brand-dark/10 grid grid-cols-2 sm:grid-cols-3 gap-4 relative z-10 select-none">
+                  <div>
+                    <span className="text-[7px] font-mono text-zinc-400 block uppercase tracking-wider font-bold">Primary Suite</span>
+                    <span className="text-[10px] font-sans font-extrabold text-brand-dark uppercase">Premiere // DaVinci</span>
+                  </div>
+                  <div>
+                    <span className="text-[7px] font-mono text-zinc-400 block uppercase tracking-wider font-bold">Delivery Focus</span>
+                    <span className="text-[10px] font-sans font-extrabold text-brand-dark uppercase">Retention & Flow</span>
+                  </div>
+                  <div className="col-span-2 sm:col-span-1">
+                    <span className="text-[7px] font-mono text-zinc-400 block uppercase tracking-wider font-bold">Acoustic Standard</span>
+                    <span className="text-[10px] font-sans font-extrabold text-brand-dark uppercase">Soundscapes & SFX</span>
+                  </div>
+                </div>
+
+                {/* Spec Pills */}
+                <div className="flex flex-wrap gap-1.5 relative z-10 pt-2 select-none">
+                  {['Speed Ramps', 'Color Grading', 'Sound Design', 'Kinetic Text', 'Split Screen'].map((spec, i) => (
+                    <span key={i} className="text-[8px] font-mono font-bold uppercase bg-brand-cream/50 text-brand-dark border border-brand-dark/10 px-2.5 py-1 rounded-md">
+                      #{spec}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Quick Stats Grid - Enhanced Neo-Brutalist Style */}
