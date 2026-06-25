@@ -133,27 +133,6 @@ export default function App() {
             <div className="lg:col-span-7 space-y-8 z-10">
               <div className="space-y-4 relative">
                 
-                {/* Floating decal beside name: Cut tool */}
-                <div className="absolute top-[5%] left-[170px] sm:left-[210px] md:left-[230px] lg:left-[210px] xl:left-[230px] flex flex-col items-center gap-0.5 bg-white border-2 border-brand-dark px-2 py-1 rounded-xl shadow-[1.5px_1.5px_0px_#1a1614] -rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
-                  <Scissors size={10} className="text-brand-dark" />
-                  <span className="text-[4px] font-mono font-black text-zinc-400 uppercase tracking-widest">Cut</span>
-                </div>
-
-                {/* Floating decal beside name: Volume VU */}
-                <div className="absolute top-[46%] left-[240px] sm:left-[350px] md:left-[390px] lg:left-[360px] xl:left-[390px] hidden sm:flex flex-col items-center gap-0.5 bg-white border-2 border-brand-dark px-1.5 py-1 rounded-xl shadow-[1.5px_1.5px_0px_#1a1614] rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10 animate-pulse">
-                  <div className="flex gap-[0.5px] w-1.5 mb-[1px]">
-                    <span className="w-1.5 h-0.5 bg-rose-500 rounded-xs" />
-                    <span className="w-1.5 h-0.5 bg-amber-400 rounded-xs" />
-                    <span className="w-1.5 h-0.5 bg-emerald-500 rounded-xs" />
-                  </div>
-                  <span className="text-[4px] font-mono font-black text-zinc-500 uppercase tracking-wider">VU</span>
-                </div>
-
-                {/* Floating decal beside name: Pace 2.0x */}
-                <div className="absolute bottom-[-5px] left-[150px] sm:left-[230px] md:left-[260px] lg:left-[240px] xl:left-[260px] flex flex-col items-center bg-white border-2 border-brand-dark px-1.5 py-0.5 rounded-lg shadow-[1.5px_1.5px_0px_#1a1614] -rotate-3 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
-                  <span className="text-[4px] font-mono font-black text-zinc-400 uppercase tracking-widest">Pace</span>
-                  <span className="text-[9px] font-mono font-black text-brand-accent">2.0X</span>
-                </div>
 
                 <h1 className="font-display font-black text-[5.5rem] sm:text-[7.5rem] lg:text-[8.5rem] leading-[0.8] text-brand-dark uppercase tracking-tighter select-none">
                   <span className="block relative hover:text-brand-accent transition-colors duration-300">
