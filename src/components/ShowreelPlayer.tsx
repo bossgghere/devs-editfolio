@@ -120,17 +120,16 @@ export default function ShowreelPlayer() {
   };
 
   return (
-    <div id="showreel-section" className="bg-brand-dark text-white rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+    <div id="showreel-section" className="bg-white text-brand-dark rounded-3xl overflow-hidden border-2 border-brand-dark shadow-[6px_6px_0px_#1a1614] transition-all duration-300">
       
-      {/* Header bar styled like editing software header */}
-      <div className="bg-[#141414] px-4 py-2 flex items-center justify-between border-b border-white/5 text-xs font-mono text-zinc-400">
+      {/* Header bar styled like MacBook white header */}
+      <div className="bg-[#f5f5f3] px-4 py-3 flex items-center justify-between border-b-2 border-brand-dark text-xs font-mono text-brand-dark font-bold select-none">
         <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-          <span className="ml-2 text-zinc-300">dev_jena_showreel_2026_v4.mp4</span>
+          <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+          <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+          <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
+          <span className="ml-2 text-brand-dark tracking-wide">dev_jena_showreel_2026_v4.mp4</span>
         </div>
-
       </div>
 
       {/* Main Split Screen Video Container */}
@@ -219,10 +218,10 @@ export default function ShowreelPlayer() {
 
 
       {/* Main Video Controls Bar */}
-      <div className="bg-[#121212] p-4 flex flex-col gap-3 border-t border-white/5">
+      <div className="bg-[#f5f5f3] p-4 flex flex-col gap-3 border-t-2 border-brand-dark select-none">
         {/* Timeline track scrubbing */}
         <div className="flex items-center gap-3">
-          <span className="text-xs font-mono text-zinc-400 min-w-[35px]">{formatTime(currentTime)}</span>
+          <span className="text-xs font-mono text-brand-dark font-bold min-w-[35px]">{formatTime(currentTime)}</span>
           <div className="flex-1 relative flex items-center">
             <input
               type="range"
@@ -230,53 +229,52 @@ export default function ShowreelPlayer() {
               max="100"
               value={progress || 0}
               onChange={handleSeek}
-              className="w-full h-1.5 bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-brand-accent"
+              className="w-full h-2 bg-brand-cream border border-brand-dark rounded-lg appearance-none cursor-pointer accent-brand-accent animate-none"
             />
             {/* Chapter markers displayed directly on timeline track */}
             {duration > 0 && CHAPTERS.map((chapter, idx) => (
               <div 
                 key={idx}
-                className="absolute w-1.5 h-1.5 rounded-full bg-brand-accent/80 border border-white/40 cursor-pointer transform -translate-x-1/2 hover:scale-150 transition-all"
+                className="absolute w-2 h-2 rounded-full bg-brand-accent border border-brand-dark cursor-pointer transform -translate-x-1/2 hover:scale-150 transition-all z-20"
                 style={{ left: `${(chapter.time / duration) * 100}%` }}
                 title={chapter.label}
                 onClick={() => handleChapterJump(chapter.time)}
               />
             ))}
           </div>
-          <span className="text-xs font-mono text-zinc-400 min-w-[35px]">{formatTime(duration)}</span>
+          <span className="text-xs font-mono text-brand-dark font-bold min-w-[35px]">{formatTime(duration)}</span>
         </div>
 
         {/* Action icons row */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
             <button
               onClick={togglePlay}
-              className="p-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white transition-all"
+              className="p-2.5 rounded-xl bg-white text-brand-dark border-2 border-brand-dark transition-all shadow-[2px_2px_0px_#1a1614] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] cursor-pointer flex items-center justify-center"
               title={isPlaying ? 'Pause' : 'Play'}
               id="timeline-play-btn"
             >
-              {isPlaying ? <Pause size={15} /> : <Play size={15} fill="white" />}
+              {isPlaying ? <Pause size={14} /> : <Play size={14} fill="currentColor" />}
             </button>
 
             <button
               onClick={toggleMute}
-              className="p-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white transition-all"
+              className="p-2.5 rounded-xl bg-white text-brand-dark border-2 border-brand-dark transition-all shadow-[2px_2px_0px_#1a1614] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] cursor-pointer flex items-center justify-center"
               title={isMuted ? 'Unmute' : 'Mute'}
               id="timeline-volume-btn"
             >
-              {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
+              {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
             </button>
           </div>
 
-          <div className="flex items-center gap-3 text-xs font-mono text-zinc-400">
-
+          <div className="flex items-center gap-3">
             <button
               onClick={handleFullScreen}
-              className="p-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white transition-all"
+              className="p-2.5 rounded-xl bg-white text-brand-dark border-2 border-brand-dark transition-all shadow-[2px_2px_0px_#1a1614] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] cursor-pointer flex items-center justify-center"
               title="Full Screen"
               id="timeline-fullscreen-btn"
             >
-              <Maximize size={15} />
+              <Maximize size={14} />
             </button>
           </div>
         </div>
