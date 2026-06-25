@@ -5,6 +5,59 @@ import { VideoItem } from '../types';
 import { Play, X, Sliders, Music, Hourglass, HelpCircle, Check, Search, Calendar, Star } from 'lucide-react';
 
 
+interface ToolItem {
+  name: string;
+  icon: string;
+  desc: string;
+  color: string;
+  capabilities: string[];
+}
+
+const TOOLS: ToolItem[] = [
+  {
+    name: 'Premiere Pro',
+    icon: 'Pr',
+    desc: 'Industry standard narrative assembly, multi-cam coordination, and pacing.',
+    color: 'bg-[#00005c] text-[#9999ff] border-[#3333ff]',
+    capabilities: ['Timeline Assembly', 'Audio Syncing', 'Rough Cuts']
+  },
+  {
+    name: 'DaVinci Resolve',
+    icon: 'Dr',
+    desc: 'Professional color grading, custom nodes, tracking, and HDR mastering.',
+    color: 'bg-[#1a0f00] text-[#ff9900] border-[#ff6600]',
+    capabilities: ['Color Correction', 'LUTFiles & Grading', 'Delivery Render']
+  },
+  {
+    name: 'After Effects',
+    icon: 'Ae',
+    desc: 'Kinetic typography, visual tracking, compositing, and advanced VFX transitions.',
+    color: 'bg-[#1a0033] text-[#cc66ff] border-[#9900ee]',
+    capabilities: ['Visual Effects', '2D/3D Trackers', 'Custom Overlays']
+  },
+  {
+    name: 'Photoshop',
+    icon: 'Ps',
+    desc: 'Digital asset production, thumbnail design, and visual asset preparation.',
+    color: 'bg-[#001f3f] text-[#33a1ff] border-[#0074d9]',
+    capabilities: ['Thumbnail Design', 'Image Repair', 'Graphic Assets']
+  },
+  {
+    name: 'Audacity',
+    icon: 'Au',
+    desc: 'Stereo soundscapes creation, audio cleanup, and ambient audio enhancements.',
+    color: 'bg-[#3b0000] text-[#ff4d4d] border-[#ff0000]',
+    capabilities: ['Noise Reduction', 'Audio Mastery', 'Foley Layout']
+  },
+  {
+    name: 'Motion Graphics',
+    icon: 'Mg',
+    desc: 'Title graphics design, typography transitions, and custom templates.',
+    color: 'bg-[#00332c] text-[#00ffcc] border-[#2ecc71]',
+    capabilities: ['Kinetic Titles', 'Vector Graphics', 'Asset Animation']
+  }
+];
+
 export default function VideoGrid() {
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
   const [isLightboxMuted, setIsLightboxMuted] = useState(false);
@@ -591,7 +644,58 @@ export default function VideoGrid() {
         </div>
       </div>
 
-      {/* 2. COMMERCIAL & YOUTUBE SECTION (16:9) */}
+      {/* 2. TOOLS & APPS SECTION */}
+      <div className="space-y-12">
+        <div className="text-center py-6">
+          <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
+            TOOLS & APPS
+          </h3>
+          <div className="w-16 h-1 bg-brand-accent/45 mx-auto mt-2 rounded" />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {TOOLS.map((tool, idx) => (
+            <div 
+              key={idx} 
+              className="bg-white border-2 border-brand-dark p-6 sm:p-8 rounded-3xl shadow-[6px_6px_0px_#1a1614] hover:shadow-[3px_3px_0px_#1a1614] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-300 relative overflow-hidden group flex flex-col justify-between"
+            >
+              {/* Technical dot overlay inside cards */}
+              <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#1a1614_1px,transparent_1px)] [background-size:12px_12px]" />
+              
+              <div className="space-y-4 relative z-10">
+                {/* Header: Icon badge and Name */}
+                <div className="flex items-center gap-4">
+                  <div className={`w-12 h-12 rounded-xl border-2 flex items-center justify-center font-display text-2xl font-black select-none ${tool.color}`}>
+                    {tool.icon}
+                  </div>
+                  <h4 className="font-display font-extrabold text-xl sm:text-2xl text-brand-dark uppercase tracking-tight leading-none">
+                    {tool.name}
+                  </h4>
+                </div>
+
+                {/* Description */}
+                <p className="text-xs font-sans text-zinc-600 leading-relaxed font-bold uppercase tracking-tight">
+                  {tool.desc}
+                </p>
+              </div>
+
+              {/* Capabilities list */}
+              <div className="mt-6 pt-4 border-t border-brand-dark/10 flex flex-wrap gap-1.5 relative z-10">
+                {tool.capabilities.map((cap, i) => (
+                  <span 
+                    key={i} 
+                    className="text-[9px] font-mono font-bold uppercase bg-brand-cream/40 text-brand-dark border border-brand-dark/10 px-2 py-0.5 rounded"
+                  >
+                    {cap}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 3. COMMERCIAL & YOUTUBE SECTION (16:9) */}
       <div className="space-y-8">
         <div className="text-center py-6">
           <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
