@@ -8,10 +8,10 @@ interface ContactPageProps {
 
 export default function ContactPage({ onBackToHome }: ContactPageProps) {
   return (
-    <section className="contact-section-page min-h-screen flex flex-col justify-between blueprint-bg select-none">
+    <section className="contact-section-page min-h-screen flex flex-col justify-between blueprint-bg select-none p-6 sm:p-8 md:p-12">
       
-      {/* Top Bar Navigation */}
-      <div className="w-full relative px-6 py-6 z-20 flex items-center justify-between">
+      {/* Top Navigation Row */}
+      <div className="w-full max-w-7xl mx-auto flex items-center justify-between z-20">
         <button 
           onClick={onBackToHome}
           className="flex items-center gap-2 bg-white text-brand-dark border-2 border-brand-dark px-5 py-2.5 rounded-full text-xs font-mono font-bold tracking-widest uppercase transition-all shadow-[3px_3px_0px_#1a1614] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] cursor-pointer"
@@ -22,21 +22,21 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
         </button>
       </div>
 
-      {/* Main Grid Layout for Statement & 4 components */}
-      <div className="max-w-6xl w-full mx-auto px-6 py-10 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative z-10 flex-grow">
+      {/* Main Grid Content Layout (Perfectly Vertically Centered on Desktop) */}
+      <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center z-10 flex-grow py-12">
         
         {/* Left Column: Big Bold Statement */}
         <motion.div 
-          className="md:col-span-6 select-none"
+          className="lg:col-span-7 select-none text-left"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="font-display font-black text-6xl sm:text-7xl lg:text-8xl text-brand-dark uppercase tracking-tighter leading-none">
+          <h2 className="font-display font-black text-6xl sm:text-7xl lg:text-8xl xl:text-9xl text-brand-dark uppercase tracking-tighter leading-[0.9] select-none">
             THINGS IN <br />
             <span 
               className="text-transparent"
-              style={{ WebkitTextStroke: '2.5px var(--color-brand-dark)' }}
+              style={{ WebkitTextStroke: '2px var(--color-brand-dark)' }}
             >
               MOTION
             </span> <br />
@@ -45,10 +45,10 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
           </h2>
         </motion.div>
 
-        {/* Right Column: 4 Cohesive Neo-Brutalist Components */}
-        <div className="md:col-span-6 space-y-6">
+        {/* Right Column: Exactly the 4 Original Cohesive Components */}
+        <div className="lg:col-span-5 space-y-6 w-full max-w-xl lg:ml-auto">
           
-          {/* Component 1: Focus */}
+          {/* Card 1: Focus */}
           <motion.div 
             className="bg-white border-2 border-brand-dark p-6 rounded-3xl shadow-[5px_5px_0px_#1a1614] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300 select-none"
             initial={{ opacity: 0, y: 15 }}
@@ -66,37 +66,22 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
             </div>
           </motion.div>
 
-          {/* Component 2: Base */}
+          {/* Card 2: Base */}
           <motion.div 
             className="bg-white border-2 border-brand-dark p-6 rounded-3xl shadow-[5px_5px_0px_#1a1614] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300 select-none"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
           >
-            <div className="space-y-3">
-              <div>
-                <p className="text-[10px] font-mono text-zinc-500 font-extrabold uppercase tracking-widest mb-1.5">
-                  Base
-                </p>
-                <p className="font-sans font-black text-brand-dark text-xs sm:text-sm uppercase tracking-tight">
-                  Bhubaneswar, Odisha, India
-                </p>
-              </div>
-              <div className="border-t border-brand-dark/5 pt-2.5">
-                <p className="text-[10px] font-mono text-zinc-500 font-extrabold uppercase tracking-widest mb-1.5">
-                  Direct Line
-                </p>
-                <a 
-                  href="tel:+918260811319"
-                  className="font-sans font-black text-brand-dark text-xs sm:text-sm uppercase tracking-tight hover:text-brand-accent transition-colors"
-                >
-                  +91 8260811319
-                </a>
-              </div>
-            </div>
+            <p className="text-[10px] font-mono text-zinc-500 font-extrabold uppercase tracking-widest mb-2">
+              Base
+            </p>
+            <p className="font-sans font-black text-brand-dark text-xs sm:text-sm uppercase tracking-tight">
+              Bhubaneswar, Odisha, India
+            </p>
           </motion.div>
 
-          {/* Component 3: Mail Button */}
+          {/* Card 3: Mail CTA Button */}
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -111,7 +96,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
             </a>
           </motion.div>
 
-          {/* Component 4: Credits */}
+          {/* Card 4: Credits */}
           <motion.div 
             className="bg-white border-2 border-brand-dark p-6 rounded-3xl shadow-[5px_5px_0px_#1a1614] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300 select-none"
             initial={{ opacity: 0, y: 15 }}
@@ -158,16 +143,16 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
         </div>
       </div>
 
-      {/* Contact Page Footer */}
-      <div className="contact-footer w-full select-none mt-auto">
-        <div className="container-footer">
-          <p className="select-none font-mono text-[10px] text-zinc-400 font-extrabold uppercase tracking-widest">
+      {/* Contact Page Footer (Fully Statically Positioned at the bottom) */}
+      <div className="w-full max-w-7xl mx-auto border-t border-brand-dark/15 pt-6 mt-auto z-20">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-mono text-zinc-500 font-extrabold uppercase tracking-widest">
+          <p className="select-none">
             Code & Logic
           </p>
 
-          <div className="contact-socials font-mono text-xs uppercase tracking-wider font-extrabold">
+          <div className="flex items-center gap-6 font-bold tracking-wider">
             <a
-              className="text-zinc-500 hover:text-brand-accent transition-all"
+              className="hover:text-brand-accent transition-all"
               href="https://github.com/bossgghere"
               target="_blank"
               rel="noreferrer"
@@ -175,7 +160,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
               GitHub
             </a>
             <a
-              className="text-zinc-500 hover:text-brand-accent transition-all"
+              className="hover:text-brand-accent transition-all"
               href="https://linkedin.com"
               target="_blank"
               rel="noreferrer"
@@ -183,7 +168,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
               LinkedIn
             </a>
             <a
-              className="text-zinc-500 hover:text-brand-accent transition-all"
+              className="hover:text-brand-accent transition-all"
               href="https://www.instagram.com/gamer__dev"
               target="_blank"
               rel="noreferrer"
@@ -192,7 +177,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
             </a>
           </div>
           
-          <p className="select-none font-mono text-[10px] text-zinc-400 font-extrabold uppercase tracking-widest">
+          <p className="select-none">
             &copy; {new Date().getFullYear()} Dev Jena
           </p>
         </div>
