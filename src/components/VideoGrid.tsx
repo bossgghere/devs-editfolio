@@ -49,14 +49,14 @@ export default function VideoGrid() {
 
       ScrollTrigger.create({
         trigger: row,
-        start: "top 70%",
+        start: "top 85%",
         onEnter: () => {
           gsap.to(items, {
             y: 0,
             rotation: 0,
-            duration: 1,
+            duration: 0.8,
             ease: "power4.out",
-            stagger: 0.25,
+            stagger: 0.08,
           });
         },
       });
