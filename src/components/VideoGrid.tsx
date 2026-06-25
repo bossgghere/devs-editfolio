@@ -644,7 +644,47 @@ export default function VideoGrid() {
         </div>
       </div>
 
-      {/* 2. TOOLS & APPS SECTION */}
+      {/* 2. COMMERCIAL & YOUTUBE SECTION (16:9) */}
+      <div className="space-y-8">
+        <div className="text-center py-6">
+          <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
+            COMMERCIAL & YOUTUBE
+          </h3>
+          <div className="w-16 h-1 bg-brand-accent/45 mx-auto mt-2 rounded" />
+        </div>
+
+        <div className="space-y-12">
+          {/* Row 1: 3 cards */}
+          <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
+            {horizontalVideos.slice(0, 3).map((video) => (
+              <div
+                key={video.id}
+                onClick={() => setSelectedVideo(video)}
+                className="project-card w-full max-w-[500px] md:max-w-none md:w-[calc(33.333%-22px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-video"
+                id={`portfolio-card-${video.id}`}
+              >
+                {renderHorizontalCardVisual(video)}
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2: 2 cards */}
+          <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
+            {horizontalVideos.slice(3, 5).map((video) => (
+              <div
+                key={video.id}
+                onClick={() => setSelectedVideo(video)}
+                className="project-card w-full max-w-[500px] md:w-[calc(33.333%-22px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-video"
+                id={`portfolio-card-${video.id}`}
+              >
+                {renderHorizontalCardVisual(video)}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* 3. TOOLS & APPS SECTION */}
       <div className="space-y-12">
         <div className="text-center py-6">
           <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
@@ -692,46 +732,6 @@ export default function VideoGrid() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* 3. COMMERCIAL & YOUTUBE SECTION (16:9) */}
-      <div className="space-y-8">
-        <div className="text-center py-6">
-          <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
-            COMMERCIAL & YOUTUBE
-          </h3>
-          <div className="w-16 h-1 bg-brand-accent/45 mx-auto mt-2 rounded" />
-        </div>
-
-        <div className="space-y-12">
-          {/* Row 1: 3 cards */}
-          <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
-            {horizontalVideos.slice(0, 3).map((video) => (
-              <div
-                key={video.id}
-                onClick={() => setSelectedVideo(video)}
-                className="project-card w-full max-w-[500px] md:max-w-none md:w-[calc(33.333%-22px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-video"
-                id={`portfolio-card-${video.id}`}
-              >
-                {renderHorizontalCardVisual(video)}
-              </div>
-            ))}
-          </div>
-
-          {/* Row 2: 2 cards */}
-          <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
-            {horizontalVideos.slice(3, 5).map((video) => (
-              <div
-                key={video.id}
-                onClick={() => setSelectedVideo(video)}
-                className="project-card w-full max-w-[500px] md:w-[calc(33.333%-22px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-video"
-                id={`portfolio-card-${video.id}`}
-              >
-                {renderHorizontalCardVisual(video)}
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
