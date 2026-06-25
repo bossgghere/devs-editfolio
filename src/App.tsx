@@ -51,6 +51,26 @@ export default function App() {
           </div>
         </div>
 
+        {/* Floating Minimal Widget: Render Status (Top Middle) */}
+        <div className="absolute left-[38%] top-[10%] hidden xl:flex flex-col gap-1.5 bg-white border-2 border-brand-dark p-2.5 rounded-2xl shadow-[3px_3px_0px_#1a1614] -rotate-3 hover:rotate-0 transition-transform duration-300 w-32 pointer-events-none select-none z-10">
+          <div className="flex items-center justify-between text-[6px] font-mono font-black text-zinc-400 uppercase tracking-widest">
+            <span>Rendering</span>
+            <span className="text-brand-accent font-bold">87%</span>
+          </div>
+          <div className="h-1.5 bg-brand-cream/50 border border-brand-dark/10 rounded-full overflow-hidden">
+            <div className="w-[87%] h-full bg-brand-accent" />
+          </div>
+        </div>
+
+        {/* Floating Minimal Widget: Aspect Ratio Selector (Top Middle) */}
+        <div className="absolute left-[50%] top-[14%] hidden xl:flex items-center gap-2 bg-white border-2 border-brand-dark p-2 rounded-2xl shadow-[3px_3px_0px_#1a1614] rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <div className="flex gap-0.5 items-end">
+            <div className="w-1.5 h-3 bg-brand-accent border border-brand-dark/30 rounded-xs" />
+            <div className="w-3 h-2 bg-brand-cream border border-brand-dark/20 rounded-xs" />
+          </div>
+          <span className="text-[6px] font-mono font-black text-zinc-400 uppercase tracking-widest">Ratio</span>
+        </div>
+
         {/* Floating Minimal Widget 4: Color LUT Circle */}
         <div className="absolute right-[5%] top-[15%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2.5 rounded-2xl shadow-[3px_3px_0px_#1a1614] rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
           <div className="w-6.5 h-6.5 rounded-full bg-gradient-to-tr from-rose-500 via-emerald-400 to-sky-400 border border-brand-dark/30 animate-[spin_10s_linear_infinite]" />
