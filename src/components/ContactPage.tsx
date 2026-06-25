@@ -73,12 +73,27 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
           >
-            <p className="text-[10px] font-mono text-zinc-500 font-extrabold uppercase tracking-widest mb-2">
-              Base
-            </p>
-            <p className="font-sans font-black text-brand-dark text-xs sm:text-sm uppercase tracking-tight">
-              Bhubaneswar, Odisha, India
-            </p>
+            <div className="space-y-3">
+              <div>
+                <p className="text-[10px] font-mono text-zinc-500 font-extrabold uppercase tracking-widest mb-1.5">
+                  Base
+                </p>
+                <p className="font-sans font-black text-brand-dark text-xs sm:text-sm uppercase tracking-tight">
+                  Bhubaneswar, Odisha, India
+                </p>
+              </div>
+              <div className="border-t border-brand-dark/5 pt-2.5">
+                <p className="text-[10px] font-mono text-zinc-500 font-extrabold uppercase tracking-widest mb-1.5">
+                  Direct Line
+                </p>
+                <a 
+                  href="tel:+918260811319"
+                  className="font-sans font-black text-brand-dark text-xs sm:text-sm uppercase tracking-tight hover:text-brand-accent transition-colors"
+                >
+                  +91 8260811319
+                </a>
+              </div>
+            </div>
           </motion.div>
 
           {/* Component 3: Mail Button */}
@@ -88,11 +103,11 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
             transition={{ duration: 0.4, delay: 0.3 }}
           >
             <a 
-              href="mailto:DEVJENA03@GMAIL.COM"
+              href="mailto:workwithdev.editzz@gmail.com"
               className="inline-flex items-center justify-center gap-3 bg-brand-accent text-white border-2 border-brand-dark px-8 py-5 rounded-3xl text-sm font-mono font-black tracking-widest uppercase transition-all shadow-[5px_5px_0px_#1a1614] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] w-full text-center cursor-pointer"
             >
               <Mail size={16} />
-              DEVJENA03@GMAIL.COM
+              workwithdev.editzz@gmail.com
             </a>
           </motion.div>
 
@@ -169,7 +184,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
             </a>
             <a
               className="text-zinc-500 hover:text-brand-accent transition-all"
-              href="https://instagram.com/devjena"
+              href="https://www.instagram.com/gamer__dev"
               target="_blank"
               rel="noreferrer"
             >
