@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { VIDEOS } from '../data';
 import { VideoItem } from '../types';
-import { Play, X, Sliders, Music, Hourglass, HelpCircle, Check, Search, Calendar, Star } from 'lucide-react';
+import { Play, X, Sliders, Music, Hourglass, HelpCircle, Check, Search, Calendar, Star, Scissors } from 'lucide-react';
 
 
 interface ToolItem {
@@ -604,7 +604,50 @@ export default function VideoGrid() {
   return (
     <div ref={gridContainerRef} className="select-none">
       {/* 1. SHORTS & REELS SECTION (9:16) - Beige BG */}
-      <section className="py-20 bg-brand-cream relative z-10">
+      <section className="py-20 bg-brand-cream relative z-10 overflow-hidden">
+        
+        {/* Background Dot-matrix texture */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(var(--color-brand-dark)_1.5px,transparent_1.5px)] [background-size:24px_24px]" />
+
+        {/* Ambient warm glow spot */}
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-brand-accent/5 blur-[100px] pointer-events-none top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2" />
+
+        {/* Floating background elements */}
+        {/* VU volume level indicator */}
+        <div className="absolute left-[4%] top-[15%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2 rounded-2xl shadow-[3px_3px_0px_#1a1614] -rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10 animate-pulse">
+          <span className="text-[6px] font-mono font-black text-zinc-500 uppercase tracking-widest mb-0.5">VU</span>
+          <div className="flex flex-col gap-0.5 w-1">
+            <span className="w-1.5 h-1 bg-rose-500 rounded-xs" />
+            <span className="w-1.5 h-1 bg-emerald-500 rounded-xs" />
+            <span className="w-1.5 h-1 bg-emerald-500 rounded-xs" />
+          </div>
+        </div>
+
+        {/* Pacing Speed multiplier */}
+        <div className="absolute left-[3%] bottom-[25%] hidden xl:flex flex-col items-center gap-0.5 bg-white border-2 border-brand-dark p-2 rounded-xl shadow-[3px_3px_0px_#1a1614] rotate-3 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest">Speed</span>
+          <span className="text-[9px] font-mono font-black text-brand-accent">1.5X</span>
+        </div>
+
+        {/* Keyframe Curve */}
+        <div className="absolute right-[4%] top-[20%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2 rounded-xl shadow-[3px_3px_0px_#1a1614] rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <div className="flex items-center gap-1 h-2">
+            <span className="w-1 h-1 bg-brand-accent rotate-45 border border-brand-dark/20" />
+            <span className="w-4 h-[1px] bg-brand-dark/20" />
+            <span className="w-1 h-1 bg-brand-accent rotate-45 border border-brand-dark/20" />
+          </div>
+          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest font-bold">Key</span>
+        </div>
+
+        {/* Timeline Flag Marker */}
+        <div className="absolute right-[3%] bottom-[20%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2.5 rounded-xl shadow-[3px_3px_0px_#1a1614] -rotate-3 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-brand-accent">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+            <line x1="4" y1="22" x2="4" y2="15" />
+          </svg>
+          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest mt-0.5">Mark</span>
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
           <div className="text-center py-6">
             <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
@@ -688,7 +731,38 @@ export default function VideoGrid() {
       </section>
 
       {/* 3. TOOLS & APPS SECTION - Beige BG */}
-      <section className="py-20 bg-brand-cream relative z-10">
+      <section className="py-20 bg-brand-cream relative z-10 overflow-hidden">
+        
+        {/* Background Dot-matrix texture */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(var(--color-brand-dark)_1.5px,transparent_1.5px)] [background-size:24px_24px]" />
+
+        {/* Ambient warm glow spot */}
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-brand-accent/5 blur-[100px] pointer-events-none top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2" />
+
+        {/* Render status */}
+        <div className="absolute left-[4%] top-[25%] hidden xl:flex flex-col items-center gap-0.5 bg-white border-2 border-brand-dark p-2 rounded-xl shadow-[3px_3px_0px_#1a1614] -rotate-3 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest">RENDER</span>
+          <span className="text-[9px] font-mono font-black text-emerald-500">OK</span>
+        </div>
+
+        {/* Ram cache HUD */}
+        <div className="absolute left-[3%] bottom-[30%] hidden xl:flex flex-col items-center gap-0.5 bg-white border-2 border-brand-dark p-2.5 rounded-xl shadow-[3px_3px_0px_#1a1614] rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest">RAM</span>
+          <span className="text-[9px] font-mono font-black text-brand-dark">92%</span>
+        </div>
+
+        {/* Color LUT Gradient disk */}
+        <div className="absolute right-[4%] top-[20%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2 rounded-xl shadow-[3px_3px_0px_#1a1614] rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-rose-500 via-emerald-400 to-sky-400 border border-brand-dark/20 animate-[spin_10s_linear_infinite]" />
+          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest mt-0.5">LUT</span>
+        </div>
+
+        {/* Timecode mini-panel */}
+        <div className="absolute right-[3%] bottom-[25%] hidden xl:flex flex-col items-center gap-0.5 bg-white border-2 border-brand-dark p-2 rounded-xl shadow-[3px_3px_0px_#1a1614] -rotate-3 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest">TIMECODE</span>
+          <span className="text-[9px] font-mono font-black text-brand-accent">00:05:12</span>
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
           <div className="text-center py-6">
             <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
