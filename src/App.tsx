@@ -170,12 +170,6 @@ export default function App() {
 
           {/* Video Grid Component */}
           <div className="space-y-6">
-            <div className="flex items-center justify-between border-b border-zinc-200 pb-3">
-              <h3 className="font-mono text-xs font-bold text-zinc-700 uppercase tracking-widest">
-                Selected Cuts & Case Studies
-              </h3>
-              <span className="text-[10px] font-mono text-zinc-400">SELECT CARD FOR CASE DETAILS</span>
-            </div>
             <VideoGrid />
           </div>
         </section>

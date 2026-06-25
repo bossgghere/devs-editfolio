@@ -563,18 +563,11 @@ export default function VideoGrid() {
     <div className="space-y-24" ref={gridContainerRef}>
       {/* 1. SHORTS & REELS SECTION (9:16) */}
       <div className="space-y-8">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-zinc-400 pb-3 gap-2">
-          <div className="space-y-1">
-            <h3 className="font-display font-black text-3xl tracking-tight text-brand-dark uppercase">
-              Shorts & Reels
-            </h3>
-            <p className="text-sm font-mono text-brand-gray font-medium">
-              Highly engaging vertical 9:16 edits designed to capture attention instantly.
-            </p>
-          </div>
-          <span className="text-xs font-mono bg-brand-dark text-white border border-brand-dark px-3.5 py-1 rounded-full uppercase self-start sm:self-auto shrink-0 font-bold">
-            12 Creative Cuts
-          </span>
+        <div className="text-center py-6">
+          <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
+            SHORTS & REELS
+          </h3>
+          <div className="w-16 h-1 bg-brand-accent/45 mx-auto mt-2 rounded" />
         </div>
 
         {/* Dynamic project-row layout with GSAP trigger animations */}
@@ -598,18 +591,11 @@ export default function VideoGrid() {
 
       {/* 2. COMMERCIAL & YOUTUBE SECTION (16:9) */}
       <div className="space-y-8">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-zinc-400 pb-3 gap-2">
-          <div className="space-y-1">
-            <h3 className="font-display font-black text-3xl tracking-tight text-brand-dark uppercase">
-              Commercial & YouTube
-            </h3>
-            <p className="text-sm font-mono text-brand-gray font-medium">
-              Immersive high-fidelity widescreen 16:9 cinematic edits and branding narratives.
-            </p>
-          </div>
-          <span className="text-xs font-mono bg-brand-dark text-white border border-brand-dark px-3.5 py-1 rounded-full uppercase self-start sm:self-auto shrink-0 font-bold">
-            9 Widescreen Cuts
-          </span>
+        <div className="text-center py-6">
+          <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
+            COMMERCIAL & YOUTUBE
+          </h3>
+          <div className="w-16 h-1 bg-brand-accent/45 mx-auto mt-2 rounded" />
         </div>
 
         <div className="space-y-12">
