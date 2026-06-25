@@ -1,39 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Mail, MessageCircle, Instagram, ShieldCheck, FileText, ArrowRight, Video, Scissors } from 'lucide-react';
+import React, { useState } from 'react';
+import { Video } from 'lucide-react';
 import ShowreelPlayer from './components/ShowreelPlayer';
 import VideoGrid from './components/VideoGrid';
-
-import ContactForm from './components/ContactForm';
-import LeadInbox from './components/LeadInbox';
 import Footer from './components/Footer';
 import ContactPage from './components/ContactPage';
 import Preloader from './components/Preloader';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<'home' | 'contact'>('home');
-  const [showAdminInbox, setShowAdminInbox] = useState(false);
-  const [inboxCount, setInboxCount] = useState(2);
-
-  // Read message count to show notification badge
-  const updateInboxCount = () => {
-    const stored = localStorage.getItem('devjena_portfolio_leads');
-    if (stored) {
-      try {
-        const parsed = JSON.parse(stored);
-        setInboxCount(parsed.length);
-      } catch (e) {
-        console.error(e);
-      }
-    }
-  };
-
-  useEffect(() => {
-    updateInboxCount();
-    // Synchronize count every 2 seconds
-    const interval = setInterval(updateInboxCount, 2000);
-    return () => clearInterval(interval);
-  }, []);
 
   if (currentPage === 'contact') {
     return <ContactPage onBackToHome={() => setCurrentPage('home')} />;
@@ -207,143 +181,6 @@ export default function App() {
             <VideoGrid />
           </div>
         </section>
-
-        {/* LET'S START A CONVERSATION SECTION */}
-        <section id="contact-section" className="space-y-10 border-t border-zinc-200 pt-16">
-          <div className="text-center space-y-2">
-            <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-brand-dark uppercase tracking-tight">
-              LET'S START A CONVERSATION
-            </h2>
-            <p className="text-sm font-sans text-zinc-500 font-medium">
-              Drop me a message, let's make something users will love.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {/* Contact Information & Channels */}
-            <div className="lg:col-span-5 space-y-6">
-              
-              {/* Profile Card / Repeating text from screenshot */}
-              <div className="bg-[#121212] text-white p-6 rounded-2xl space-y-4 border border-white/5">
-                <div className="flex items-center gap-2 text-xs font-mono text-brand-accent font-bold">
-                  <span>DEV JENA</span>
-                  <span>//</span>
-                  <span>BOOKING OFFICE</span>
-                </div>
-                <p className="text-[11px] font-sans text-zinc-400 uppercase tracking-tight leading-relaxed">
-                  I AM A CREATIVE VIDEO EDITOR DEDICATED TO TRANSFORMING IDEAS INTO HIGH-QUALITY VISUAL STORIES. WITH THREE+ YEARS OF EXPERIENCE...
-                </p>
-              </div>
-
-              {/* Channels Grid matching design layout */}
-              <div className="space-y-4">
-                
-                {/* Email block */}
-                <a 
-                  href="mailto:DEVJENA03@GMAIL.COM"
-                  className="block bg-white border border-zinc-200 p-5 rounded-2xl hover:border-brand-dark hover:shadow-md transition-all group"
-                  id="contact-email-link"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-zinc-100 text-brand-dark rounded-xl group-hover:bg-brand-dark group-hover:text-white transition-all">
-                      <Mail size={18} />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-mono text-zinc-400 block font-bold uppercase tracking-wider">EMAIL DIRECT</span>
-                      <span className="font-mono text-xs font-extrabold text-brand-dark uppercase tracking-wider block">DEVJENA03@GMAIL.COM</span>
-                      <span className="text-[11px] text-zinc-500 font-sans block mt-1">Let's create something that actually works.</span>
-                    </div>
-                  </div>
-                </a>
-
-                {/* WhatsApp block */}
-                <a 
-                  href="https://wa.me/911234567890" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="block bg-white border border-zinc-200 p-5 rounded-2xl hover:border-brand-dark hover:shadow-md transition-all group"
-                  id="contact-whatsapp-link"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-zinc-100 text-brand-dark rounded-xl group-hover:bg-brand-dark group-hover:text-white transition-all">
-                      <MessageCircle size={18} />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-mono text-zinc-400 block font-bold uppercase tracking-wider">WHATSAPP</span>
-                      <span className="font-mono text-xs font-extrabold text-brand-dark uppercase tracking-wider block">LETS TALK MORE FURTHER</span>
-                      <span className="text-[11px] text-zinc-500 font-sans block mt-1">Tap in to chat direct about concepts, timeline, & rates.</span>
-                    </div>
-                  </div>
-                </a>
-
-                {/* Instagram block */}
-                <a 
-                  href="https://instagram.com/devjena" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="block bg-white border border-zinc-200 p-5 rounded-2xl hover:border-brand-dark hover:shadow-md transition-all group"
-                  id="contact-instagram-link"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-zinc-100 text-brand-dark rounded-xl group-hover:bg-brand-dark group-hover:text-white transition-all">
-                      <Instagram size={18} />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-mono text-zinc-400 block font-bold uppercase tracking-wider">INSTAGRAM</span>
-                      <span className="font-mono text-xs font-extrabold text-brand-dark uppercase tracking-wider block">FOLLOW THE FLOW</span>
-                      <span className="text-[11px] text-zinc-500 font-sans block mt-1">Tap in for visuals with purpose.</span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              {/* Admin Inbox Toggle Widget */}
-              <div className="bg-[#f1f1eb] p-4 rounded-2xl border border-zinc-200 flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <div className="relative">
-                    <ShieldCheck size={20} className="text-zinc-700" />
-                    {inboxCount > 0 && (
-                      <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-brand-accent rounded-full animate-pulse" />
-                    )}
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-mono font-bold text-zinc-800">Review Inquiries Inbox</h4>
-                    <p className="text-[10px] text-zinc-500">Review incoming leads in real-time</p>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setShowAdminInbox(!showAdminInbox)}
-                  className="bg-brand-dark hover:bg-zinc-800 text-white px-3.5 py-1.5 rounded-lg text-[10px] font-mono font-bold tracking-wider transition-all"
-                  id="toggle-admin-inbox-btn"
-                >
-                  {showAdminInbox ? 'CLOSE PANEL' : `VIEW INBOX (${inboxCount})`}
-                </button>
-              </div>
-
-            </div>
-
-            {/* Right Column: Contact Booking Form */}
-            <div className="lg:col-span-7">
-              <ContactForm onMessageSent={updateInboxCount} />
-            </div>
-          </div>
-        </section>
-
-        {/* ADMIN INBOX DRAWER DISPLAY */}
-        <AnimatePresence>
-          {showAdminInbox && (
-            <motion.section 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              className="border-t-2 border-brand-dark pt-8"
-              id="admin-dashboard-section"
-            >
-              <LeadInbox onClose={() => setShowAdminInbox(false)} />
-            </motion.section>
-          )}
-        </AnimatePresence>
 
       </div>
 
