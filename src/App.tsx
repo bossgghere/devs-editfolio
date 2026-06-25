@@ -38,8 +38,17 @@ export default function App() {
             {/* Left Column: Big Bold Name and Bio Paragraph */}
             <div className="lg:col-span-7 space-y-8 z-10">
               <div className="space-y-4">
-                <h1 className="font-display font-extrabold text-[4.5rem] sm:text-[6rem] lg:text-[7rem] leading-[0.85] text-brand-dark uppercase tracking-tighter">
-                  DEV<br />JENA
+                <h1 className="font-display font-black text-[5.5rem] sm:text-[7.5rem] lg:text-[8.5rem] leading-[0.8] text-brand-dark uppercase tracking-tighter select-none">
+                  <span className="block relative hover:text-brand-accent transition-colors duration-300">
+                    DEV
+                    <span className="inline-block w-3.5 h-3.5 bg-brand-accent rounded-full ml-2.5 align-middle animate-pulse" />
+                  </span>
+                  <span 
+                    className="block text-transparent transition-colors duration-500 hover:text-brand-dark"
+                    style={{ WebkitTextStroke: '2.5px var(--color-brand-dark)' }}
+                  >
+                    JENA
+                  </span>
                 </h1>
               </div>
 
