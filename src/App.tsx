@@ -200,7 +200,7 @@ export default function App() {
                     src="/images/hero-1.png"
                     alt="Dev Jena Portrait"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                    className="w-full h-full object-cover"
                   />
                   
                   {/* Pencil sketch texture overlay */}
@@ -225,7 +225,7 @@ export default function App() {
                     src="/images/hero-2.png"
                     alt="Dev Jena edit suite"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover grayscale"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <p className="text-[9px] text-center font-mono mt-1 text-zinc-500">IN THE SUITE</p>
