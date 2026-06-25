@@ -55,8 +55,25 @@ export default function Footer({ onContactClick }: FooterProps) {
             <span className="text-brand-cream font-bold">{localTime}</span>
           </div>
 
-          <div className="text-left md:text-center uppercase font-bold tracking-wider">
-            DEVELOPED BY DEV JENA
+          <div className="text-left md:text-center uppercase font-bold tracking-wider flex items-center justify-start md:justify-center gap-1.5 flex-wrap">
+            <span>Developed by</span>
+            <a 
+              href="https://www.gourav.fun/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-brand-cream hover:text-brand-accent transition-colors underline"
+            >
+              Gourav Raut
+            </a>
+            <span className="text-brand-gray/30">/</span>
+            <a 
+              href="https://www.instagram.com/gourav_raut_/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-brand-gray hover:text-brand-accent transition-colors lowercase font-normal"
+            >
+              @gourav_raut_
+            </a>
           </div>
 
           <div className="text-left md:text-right uppercase font-bold tracking-wider">

@@ -103,12 +103,40 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.4 }}
           >
-            <p className="text-[10px] font-mono text-zinc-500 font-extrabold uppercase tracking-widest mb-2">
+            <p className="text-[10px] font-mono text-zinc-500 font-extrabold uppercase tracking-widest mb-3">
               Credits
             </p>
-            <div className="flex justify-between items-center text-xs font-sans font-black text-brand-dark uppercase tracking-tight">
-              <span>Created by Dev Jena</span>
-              <span className="font-mono text-zinc-400">Edition 2026</span>
+            <div className="space-y-2 text-xs font-sans font-black text-brand-dark uppercase tracking-tight">
+              <div className="flex justify-between items-center">
+                <span>Created by</span>
+                <span className="text-zinc-500">Dev Jena</span>
+              </div>
+              <div className="flex justify-between items-center border-t border-brand-dark/5 pt-2 flex-wrap gap-1">
+                <span>Developed by</span>
+                <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold lowercase">
+                  <a 
+                    href="https://www.gourav.fun/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-brand-accent hover:underline"
+                  >
+                    Gourav Raut
+                  </a>
+                  <span className="text-zinc-300">/</span>
+                  <a 
+                    href="https://www.instagram.com/gourav_raut_/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-zinc-400 hover:text-brand-accent"
+                  >
+                    @gourav_raut_
+                  </a>
+                </div>
+              </div>
+              <div className="flex justify-between items-center border-t border-brand-dark/5 pt-2">
+                <span>Edition</span>
+                <span className="font-mono text-zinc-400 font-bold">2026</span>
+              </div>
             </div>
           </motion.div>
 
