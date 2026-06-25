@@ -222,7 +222,7 @@ export default function App() {
               <div className="absolute -bottom-6 -left-6 hidden sm:block w-[140px] bg-white border border-brand-dark p-2 rounded-2xl shadow-lg rotate-[-6deg] hover:rotate-0 transition-transform">
                 <div className="aspect-[4/5] rounded-xl overflow-hidden">
                   <img
-                    src="/images/hero-2.png"
+                    src="/images/hero-2.jpg"
                     alt="Dev Jena edit suite"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
