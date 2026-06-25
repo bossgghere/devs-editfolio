@@ -51,24 +51,50 @@ export default function App() {
           </div>
         </div>
 
-        {/* Floating Minimal Widget: Render Status (Top Middle) */}
-        <div className="absolute left-[38%] top-[10%] hidden xl:flex flex-col gap-1.5 bg-white border-2 border-brand-dark p-2.5 rounded-2xl shadow-[3px_3px_0px_#1a1614] -rotate-3 hover:rotate-0 transition-transform duration-300 w-32 pointer-events-none select-none z-10">
-          <div className="flex items-center justify-between text-[6px] font-mono font-black text-zinc-400 uppercase tracking-widest">
-            <span>Rendering</span>
-            <span className="text-brand-accent font-bold">87%</span>
+        {/* Floating Minimal Widget: Long Timeline Track (Top Middle) */}
+        <div className="absolute left-[36%] top-[10%] hidden xl:block bg-white border-2 border-brand-dark p-3.5 rounded-2xl shadow-[4px_4px_0px_#1a1614] -rotate-1 hover:rotate-0 transition-transform duration-300 w-80 pointer-events-none select-none z-10">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
+              <span className="text-[7px] font-mono font-black text-brand-dark uppercase tracking-widest">Timeline_V1.mp4</span>
+            </div>
+            <span className="text-[6px] font-mono font-bold text-zinc-400">00:03:12 / 00:08:00</span>
           </div>
-          <div className="h-1.5 bg-brand-cream/50 border border-brand-dark/10 rounded-full overflow-hidden">
-            <div className="w-[87%] h-full bg-brand-accent" />
+          
+          {/* Timeline tracks (Video & Audio layers) */}
+          <div className="space-y-1.5 font-mono">
+            {/* Video track 1 */}
+            <div className="flex items-center gap-1">
+              <span className="text-[6px] font-black text-zinc-400 w-4">V1</span>
+              <div className="flex-1 h-4 bg-brand-cream/35 border border-brand-dark/10 rounded flex items-center px-1 gap-1 relative overflow-hidden">
+                <div className="w-[45%] h-2.5 bg-brand-accent/20 border border-brand-accent/35 rounded-xs flex items-center justify-center text-[5px] text-brand-accent font-black">CLIP_01.mov</div>
+                <div className="w-[30%] h-2.5 bg-brand-accent/10 border border-brand-accent/25 rounded-xs flex items-center justify-center text-[5px] text-brand-accent font-black">CLIP_02.mov</div>
+                <div className="w-[20%] h-2.5 bg-brand-accent/15 border border-brand-accent/30 rounded-xs flex items-center justify-center text-[5px] text-brand-accent font-black">CLIP_03</div>
+              </div>
+            </div>
+            {/* Audio track 1 */}
+            <div className="flex items-center gap-1">
+              <span className="text-[6px] font-black text-zinc-400 w-4">A1</span>
+              <div className="flex-1 h-3 bg-brand-cream/25 border border-brand-dark/10 rounded flex items-center px-1 relative overflow-hidden">
+                <div className="w-[85%] h-1.5 bg-emerald-500/15 border border-emerald-500/30 rounded-xs flex items-center px-1">
+                  {/* Fake Audio Waveform line */}
+                  <div className="w-full h-1 flex items-center gap-[0.5px]">
+                    <span className="h-[2px] w-[1px] bg-emerald-600/40" />
+                    <span className="h-[4px] w-[1px] bg-emerald-600/40" />
+                    <span className="h-[3px] w-[1px] bg-emerald-600/40" />
+                    <span className="h-[5px] w-[1px] bg-emerald-600/40" />
+                    <span className="h-[2px] w-[1px] bg-emerald-600/40" />
+                    <span className="h-[3px] w-[1px] bg-emerald-600/40" />
+                    <span className="h-[4px] w-[1px] bg-emerald-600/40" />
+                    <span className="h-[1px] w-[1px] bg-emerald-600/40" />
+                    <span className="h-[3px] w-[1px] bg-emerald-600/40" />
+                    <span className="h-[5px] w-[1px] bg-emerald-600/40" />
+                    <span className="h-[2px] w-[1px] bg-emerald-600/40" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        {/* Floating Minimal Widget: Aspect Ratio Selector (Top Middle) */}
-        <div className="absolute left-[50%] top-[14%] hidden xl:flex items-center gap-2 bg-white border-2 border-brand-dark p-2 rounded-2xl shadow-[3px_3px_0px_#1a1614] rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
-          <div className="flex gap-0.5 items-end">
-            <div className="w-1.5 h-3 bg-brand-accent border border-brand-dark/30 rounded-xs" />
-            <div className="w-3 h-2 bg-brand-cream border border-brand-dark/20 rounded-xs" />
-          </div>
-          <span className="text-[6px] font-mono font-black text-zinc-400 uppercase tracking-widest">Ratio</span>
         </div>
 
         {/* Floating Minimal Widget 4: Color LUT Circle */}
