@@ -18,8 +18,8 @@ export default function Preloader() {
 
   const imagePaths = [
     'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&q=80',
-    'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80',
-    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80',
+    'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80',
+    'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80',
     'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80',
   ];
 
