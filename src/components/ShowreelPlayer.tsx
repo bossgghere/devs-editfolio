@@ -130,13 +130,7 @@ export default function ShowreelPlayer() {
           <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
           <span className="ml-2 text-zinc-300">dev_jena_showreel_2026_v4.mp4</span>
         </div>
-        <div className="flex items-center gap-3">
-          <span className="text-[10px] bg-brand-accent/20 text-brand-accent px-2 py-0.5 rounded border border-brand-accent/30 flex items-center gap-1 animate-pulse">
-            <span className="w-1 h-1 rounded-full bg-brand-accent"></span>
-            ACTIVE PROJECT
-          </span>
-          <span className="hidden sm:inline">1080p | 60 FPS</span>
-        </div>
+
       </div>
 
       {/* Main Split Screen Video Container */}
