@@ -68,15 +68,6 @@
   overflow: hidden;
 }
 
-.contact-section-page .screensaver {
-  position: absolute;
-  background-size: cover;
-  background-position: center;
-  pointer-events: none;
-  z-index: 0;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
 
 .contact-section-page .contact-copy {
   width: 80%;
