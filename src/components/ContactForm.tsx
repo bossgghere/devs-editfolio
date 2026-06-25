@@ -56,7 +56,7 @@ export default function ContactForm({ onMessageSent }: ContactFormProps) {
       };
 
       // Save to localStorage
-      const existing = localStorage.getItem('aamir_portfolio_leads');
+      const existing = localStorage.getItem('devjena_portfolio_leads');
       let leads: ContactMessage[] = [];
       if (existing) {
         try {
@@ -66,7 +66,7 @@ export default function ContactForm({ onMessageSent }: ContactFormProps) {
         }
       }
       leads.unshift(newMessage);
-      localStorage.setItem('aamir_portfolio_leads', JSON.stringify(leads));
+      localStorage.setItem('devjena_portfolio_leads', JSON.stringify(leads));
 
       setIsSubmitting(false);
       setSuccess(true);

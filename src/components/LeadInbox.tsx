@@ -13,7 +13,7 @@ export default function LeadInbox({ onClose }: LeadInboxProps) {
 
   // Load submissions from localStorage on mount
   useEffect(() => {
-    const stored = localStorage.getItem('aamir_portfolio_leads');
+    const stored = localStorage.getItem('devjena_portfolio_leads');
     if (stored) {
       try {
         setMessages(JSON.parse(stored));
@@ -40,7 +40,7 @@ export default function LeadInbox({ onClose }: LeadInboxProps) {
           timestamp: 'June 25, 2026, 9:30 AM'
         }
       ];
-      localStorage.setItem('aamir_portfolio_leads', JSON.stringify(initialSeed));
+      localStorage.setItem('devjena_portfolio_leads', JSON.stringify(initialSeed));
       setMessages(initialSeed);
     }
   }, []);
@@ -48,7 +48,7 @@ export default function LeadInbox({ onClose }: LeadInboxProps) {
   const handleDelete = (id: string) => {
     const updated = messages.filter(m => m.id !== id);
     setMessages(updated);
-    localStorage.setItem('aamir_portfolio_leads', JSON.stringify(updated));
+    localStorage.setItem('devjena_portfolio_leads', JSON.stringify(updated));
   };
 
   return (

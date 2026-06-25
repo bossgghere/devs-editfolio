@@ -13,7 +13,7 @@ export default function App() {
 
   // Read message count to show notification badge
   const updateInboxCount = () => {
-    const stored = localStorage.getItem('aamir_portfolio_leads');
+    const stored = localStorage.getItem('devjena_portfolio_leads');
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
@@ -39,7 +39,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Video className="text-brand-accent" size={18} />
-            <span className="font-mono text-xs font-bold tracking-widest text-zinc-800">AAMIR NAQVI // EDITOR</span>
+            <span className="font-mono text-xs font-bold tracking-widest text-zinc-800">DEV JENA // EDITOR</span>
           </div>
           <div className="flex items-center gap-4">
             <a 
@@ -77,7 +77,7 @@ export default function App() {
                 I EDIT VISUALS THAT BUILD BRANDS
               </span>
               <h1 className="font-display font-extrabold text-[4.5rem] sm:text-[6rem] lg:text-[7rem] leading-[0.85] text-brand-dark uppercase tracking-tighter">
-                AAMIR<br />NAQVI
+                DEV<br />JENA
               </h1>
             </div>
 
@@ -119,14 +119,14 @@ export default function App() {
               
               {/* Outer frame badge */}
               <div className="absolute top-6 left-6 bg-brand-accent text-white font-mono text-[9px] font-bold tracking-widest uppercase px-2.5 py-1 rounded shadow-md z-10">
-                AAMIR NAQVI
+                DEV JENA
               </div>
 
               {/* Styled portrait image from Unsplash with curly hair & friendly smile (matching screenshot guy) */}
               <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 relative border border-zinc-200">
                 <img
                   src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=800&q=80"
-                  alt="Aamir Naqvi Portrait"
+                  alt="Dev Jena Portrait"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
                 />
@@ -139,7 +139,7 @@ export default function App() {
               {/* Sub-label */}
               <div className="mt-4 flex items-center justify-between">
                 <div>
-                  <h3 className="font-mono text-xs font-bold text-brand-dark">AAMIR NAQVI</h3>
+                  <h3 className="font-mono text-xs font-bold text-brand-dark">DEV JENA</h3>
                   <p className="text-[10px] font-sans text-zinc-500">Video Editor & Creative Director</p>
                 </div>
                 <div className="h-2.5 w-2.5 rounded-full bg-[#27c93f] animate-pulse" title="Ready for booking" />
@@ -151,7 +151,7 @@ export default function App() {
               <div className="aspect-[4/5] rounded-xl overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
-                  alt="Aamir Naqvi edit suite"
+                  alt="Dev Jena edit suite"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover grayscale"
                 />
@@ -220,7 +220,7 @@ export default function App() {
               {/* Profile Card / Repeating text from screenshot */}
               <div className="bg-[#121212] text-white p-6 rounded-2xl space-y-4 border border-white/5">
                 <div className="flex items-center gap-2 text-xs font-mono text-brand-accent font-bold">
-                  <span>AAMIR NAQVI</span>
+                  <span>DEV JENA</span>
                   <span>//</span>
                   <span>BOOKING OFFICE</span>
                 </div>
@@ -234,7 +234,7 @@ export default function App() {
                 
                 {/* Email block */}
                 <a 
-                  href="mailto:AAMIRNAQVI03@GMAIL.COM"
+                  href="mailto:DEVJENA03@GMAIL.COM"
                   className="block bg-white border border-zinc-200 p-5 rounded-2xl hover:border-brand-dark hover:shadow-md transition-all group"
                   id="contact-email-link"
                 >
@@ -244,7 +244,7 @@ export default function App() {
                     </div>
                     <div>
                       <span className="text-[10px] font-mono text-zinc-400 block font-bold uppercase tracking-wider">EMAIL DIRECT</span>
-                      <span className="font-mono text-xs font-extrabold text-brand-dark uppercase tracking-wider block">AAMIRNAQVI03@GMAIL.COM</span>
+                      <span className="font-mono text-xs font-extrabold text-brand-dark uppercase tracking-wider block">DEVJENA03@GMAIL.COM</span>
                       <span className="text-[11px] text-zinc-500 font-sans block mt-1">Let's create something that actually works.</span>
                     </div>
                   </div>
@@ -272,7 +272,7 @@ export default function App() {
 
                 {/* Instagram block */}
                 <a 
-                  href="https://instagram.com/aamirnaqvi" 
+                  href="https://instagram.com/devjena" 
                   target="_blank" 
                   rel="noreferrer"
                   className="block bg-white border border-zinc-200 p-5 rounded-2xl hover:border-brand-dark hover:shadow-md transition-all group"
@@ -344,7 +344,7 @@ export default function App() {
       <footer className="border-t border-zinc-200 bg-white py-12 mt-24 text-center space-y-4">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono text-zinc-400">
           <div>
-            © {new Date().getFullYear()} AAMIR NAQVI. ALL RIGHTS RESERVED.
+            © {new Date().getFullYear()} DEV JENA. ALL RIGHTS RESERVED.
           </div>
           <div className="flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>

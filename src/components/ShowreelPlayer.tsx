@@ -128,7 +128,7 @@ export default function ShowreelPlayer() {
           <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
           <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
           <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-          <span className="ml-2 text-zinc-300">aamir_showreel_2026_v4.mp4</span>
+          <span className="ml-2 text-zinc-300">dev_jena_showreel_2026_v4.mp4</span>
         </div>
         <div className="flex items-center gap-3">
           <span className="text-[10px] bg-brand-accent/20 text-brand-accent px-2 py-0.5 rounded border border-brand-accent/30 flex items-center gap-1 animate-pulse">
@@ -277,7 +277,7 @@ export default function ShowreelPlayer() {
           {activeTab === 'timeline' && (
             <div>
               <p className="text-xs text-zinc-400 mb-3 font-sans">
-                Jump directly to different cinematic milestones in Aamir's edit timeline. Witness precision timing, sound coordination, and paced scene assembly.
+                Jump directly to different cinematic milestones in Dev's edit timeline. Witness precision timing, sound coordination, and paced scene assembly.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
                 {CHAPTERS.map((chapter, idx) => (
@@ -305,7 +305,7 @@ export default function ShowreelPlayer() {
                 <div className="flex-1">
                   <h4 className="text-xs font-bold font-mono text-zinc-300 uppercase mb-1">Interactive Grading Simulator</h4>
                   <p className="text-xs text-zinc-400">
-                    Use the split-slider to compare RAW Log-profile footage directly with Aamir's customized cinematic color grade grade.
+                    Use the split-slider to compare RAW Log-profile footage directly with Dev's customized cinematic color grade grade.
                   </p>
                 </div>
                 <div className="flex gap-2 w-full md:w-auto">
