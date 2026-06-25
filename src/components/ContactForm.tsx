@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2, ShieldAlert } from 'lucide-react';
+import { Send, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ContactMessage } from '../types';
 
@@ -9,17 +9,17 @@ interface ContactFormProps {
 
 const BUDGET_RANGES = [
   'Under $500',
-  '$500 - $1,500',
-  '$1,500 - $3,000',
-  '$3,000+'
+  '$500 - $1.5K',
+  '$1.5K - $3K',
+  '$3K+'
 ];
 
 const PROJECT_TYPES = [
-  'TikTok / Shorts / Reels Bundle',
-  'Commercial / Promo Video',
-  'Podcast Multi-cam Editing',
-  'YouTube Full Video Edit',
-  'Custom Motion Graphics'
+  'Shorts Bundle',
+  'Commercial / Promo',
+  'Podcast Cut',
+  'YouTube Edit',
+  'Custom Motion'
 ];
 
 export default function ContactForm({ onMessageSent }: ContactFormProps) {
@@ -61,8 +61,8 @@ export default function ContactForm({ onMessageSent }: ContactFormProps) {
       if (existing) {
         try {
           leads = JSON.parse(existing);
-        } catch (e) {
-          console.error(e);
+        } catch (err) {
+          console.error(err);
         }
       }
       leads.unshift(newMessage);
@@ -85,87 +85,117 @@ export default function ContactForm({ onMessageSent }: ContactFormProps) {
   };
 
   return (
-    <div className="bg-white border border-zinc-200 p-6 sm:p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+    <div className="w-full bg-[#fcfcf9] p-2 select-none">
       <AnimatePresence mode="wait">
         {!success ? (
           <motion.form 
             key="contact-form"
             onSubmit={handleSubmit}
-            className="space-y-5"
+            className="space-y-6"
             id="client-contact-form"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Input Row for Name and Email */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {/* Name field */}
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider block font-bold">Your Name</label>
+              <div className="space-y-2">
+                <label className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-extrabold">
+                  Your Name
+                </label>
                 <input
                   type="text"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Sarah Holt"
-                  className="w-full bg-zinc-50 border border-zinc-200 px-4 py-2.5 rounded-xl text-xs font-sans text-zinc-950 focus:outline-none focus:border-brand-dark transition-all placeholder:text-zinc-400"
+                  className="w-full bg-white border-2 border-brand-dark px-4 py-3 rounded-2xl text-xs font-sans text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-dark transition-all placeholder:text-zinc-400/70 shadow-[3px_3px_0px_#1a1614] focus:shadow-none focus:translate-x-[2px] focus:translate-y-[2px]"
                   id="contact-name-input"
                 />
               </div>
 
               {/* Email field */}
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider block font-bold">Email Address</label>
+              <div className="space-y-2">
+                <label className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-extrabold">
+                  Email Address
+                </label>
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="e.g. sarah@ironcrest.com"
-                  className="w-full bg-zinc-50 border border-zinc-200 px-4 py-2.5 rounded-xl text-xs font-sans text-zinc-950 focus:outline-none focus:border-brand-dark transition-all placeholder:text-zinc-400"
+                  className="w-full bg-white border-2 border-brand-dark px-4 py-3 rounded-2xl text-xs font-sans text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-dark transition-all placeholder:text-zinc-400/70 shadow-[3px_3px_0px_#1a1614] focus:shadow-none focus:translate-x-[2px] focus:translate-y-[2px]"
                   id="contact-email-input"
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Project Type */}
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider block font-bold">Project Type</label>
-                <select
-                  value={projectType}
-                  onChange={(e) => setProjectType(e.target.value)}
-                  className="w-full bg-zinc-50 border border-zinc-200 px-3 py-2.5 rounded-xl text-xs font-sans text-zinc-950 focus:outline-none focus:border-brand-dark transition-all"
-                  id="contact-type-select"
-                >
-                  {PROJECT_TYPES.map((type, idx) => (
-                    <option key={idx} value={type}>{type}</option>
-                  ))}
-                </select>
+            {/* Project Type Pills */}
+            <div className="space-y-2.5">
+              <label className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-extrabold">
+                Project Format
+              </label>
+              <div className="flex flex-wrap gap-2.5">
+                {PROJECT_TYPES.map((type) => {
+                  const isSelected = projectType === type;
+                  return (
+                    <button
+                      key={type}
+                      type="button"
+                      onClick={() => setProjectType(type)}
+                      className={`px-4 py-2.5 rounded-2xl text-[10px] font-mono font-extrabold uppercase tracking-wider text-center border-2 border-brand-dark transition-all duration-200 cursor-pointer ${
+                        isSelected 
+                          ? 'bg-brand-accent text-white shadow-none translate-x-[2px] translate-y-[2px]' 
+                          : 'bg-white text-brand-dark shadow-[3px_3px_0px_#1a1614] hover:bg-zinc-50 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_#1a1614]'
+                      }`}
+                    >
+                      {type}
+                    </button>
+                  );
+                })}
               </div>
+            </div>
 
-              {/* Budget Estimation */}
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider block font-bold">Estimated Budget</label>
-                <select
-                  value={budget}
-                  onChange={(e) => setBudget(e.target.value)}
-                  className="w-full bg-zinc-50 border border-zinc-200 px-3 py-2.5 rounded-xl text-xs font-sans text-zinc-950 focus:outline-none focus:border-brand-dark transition-all"
-                  id="contact-budget-select"
-                >
-                  {BUDGET_RANGES.map((range, idx) => (
-                    <option key={idx} value={range}>{range}</option>
-                  ))}
-                </select>
+            {/* Budget Estimations */}
+            <div className="space-y-2.5">
+              <label className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-extrabold">
+                Estimated Budget
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {BUDGET_RANGES.map((range) => {
+                  const isSelected = budget === range;
+                  return (
+                    <button
+                      key={range}
+                      type="button"
+                      onClick={() => setBudget(range)}
+                      className={`py-2.5 rounded-2xl text-[10px] font-mono font-extrabold uppercase tracking-wider text-center border-2 border-brand-dark transition-all duration-200 cursor-pointer ${
+                        isSelected 
+                          ? 'bg-brand-accent text-white shadow-none translate-x-[2px] translate-y-[2px]' 
+                          : 'bg-white text-brand-dark shadow-[3px_3px_0px_#1a1614] hover:bg-zinc-50 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_#1a1614]'
+                      }`}
+                    >
+                      {range}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             {/* Project description details */}
-            <div className="space-y-1.5">
-              <label className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider block font-bold">Project Details & Creative Brief</label>
+            <div className="space-y-2">
+              <label className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-extrabold">
+                Briefing details
+              </label>
               <textarea
                 required
                 rows={4}
                 value={details}
                 onChange={(e) => setDetails(e.target.value)}
-                placeholder="Briefly describe your footage, desired pacing, style reference, and timeline goals..."
-                className="w-full bg-zinc-50 border border-zinc-200 p-4 rounded-xl text-xs font-sans text-zinc-950 focus:outline-none focus:border-brand-dark transition-all placeholder:text-zinc-400 resize-none"
+                placeholder="Describe your raw footage duration, editing style, reference pace, and delivery expectations..."
+                className="w-full bg-white border-2 border-brand-dark p-4 rounded-2xl text-xs font-sans text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-dark transition-all placeholder:text-zinc-400/70 shadow-[3px_3px_0px_#1a1614] focus:shadow-none focus:translate-x-[2px] focus:translate-y-[2px] resize-none"
                 id="contact-details-textarea"
               />
             </div>
@@ -174,18 +204,18 @@ export default function ContactForm({ onMessageSent }: ContactFormProps) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-brand-dark hover:bg-brand-accent text-white py-3 rounded-xl text-xs font-mono font-bold tracking-widest uppercase transition-all shadow-md flex items-center justify-center gap-2 disabled:bg-zinc-400 hover:scale-[1.01]"
+              className="w-full bg-brand-accent text-white border-2 border-brand-dark py-4 rounded-2xl text-xs font-mono font-black tracking-widest uppercase transition-all shadow-[4px_4px_0px_#1a1614] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] flex items-center justify-center gap-2 cursor-pointer disabled:bg-zinc-400 disabled:shadow-none disabled:translate-x-0 disabled:translate-y-0"
               id="contact-submit-btn"
             >
               {isSubmitting ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  <span>TRANSMITTING REEL BRIEF...</span>
+                  <div className="w-4.5 h-4.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  <span>Transmitting Reel Outline...</span>
                 </>
               ) : (
                 <>
-                  <Send size={13} />
-                  <span>SEND REEL BRIEF</span>
+                  <Send size={14} />
+                  <span>Transmit Reel Brief</span>
                 </>
               )}
             </button>
@@ -193,19 +223,21 @@ export default function ContactForm({ onMessageSent }: ContactFormProps) {
         ) : (
           <motion.div 
             key="success-card"
-            initial={{ scale: 0.9, opacity: 0 }}
+            initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            className="py-12 text-center space-y-4"
+            exit={{ scale: 0.95, opacity: 0 }}
+            className="py-12 text-center space-y-6"
             id="form-success-alert"
           >
-            <div className="w-16 h-16 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto shadow-md border border-green-100">
+            <div className="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto border-2 border-brand-dark shadow-[3px_3px_0px_#1a1614]">
               <CheckCircle2 size={32} />
             </div>
-            <div>
-              <h4 className="font-display font-black text-xl text-zinc-900 uppercase">Brief Transmitted Successfully</h4>
-              <p className="text-xs text-zinc-500 mt-1 max-w-sm mx-auto font-sans leading-relaxed">
-                Thank you! Your creative outline has been logged. Open the **Admin Inbox Panel** below to see your lead listed instantly!
+            <div className="space-y-2">
+              <h4 className="font-display font-black text-2xl text-brand-dark uppercase tracking-tight">
+                Brief Logged Successfully
+              </h4>
+              <p className="text-xs text-zinc-600 max-w-sm mx-auto font-sans leading-relaxed font-bold uppercase tracking-tight">
+                Your parameters have been queued. Toggle the "Admin Inbox" tab above to view your lead inside the browser local cache instantly!
               </p>
             </div>
           </motion.div>
