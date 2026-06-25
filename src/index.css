@@ -8,15 +8,15 @@
   --font-accent: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --color-brand-cream: #ffffff;
-  --color-brand-dark: #0d0d0d;
-  --color-brand-gray: #4a4a4a;
-  --color-brand-accent: #ff4a4a;
+  --color-brand-cream: #e3e3db;
+  --color-brand-dark: #1a1614;
+  --color-brand-gray: #8c7e77;
+  --color-brand-accent: #ff6e14;
 }
 
-/* Custom background pattern replaced with a plain solid white background */
+/* Custom background pattern updated with a warm premium beige background from reference */
 .blueprint-bg {
-  background-color: #ffffff;
+  background-color: var(--color-brand-cream);
 }
 
 /* Scrollbar customizations */
@@ -25,7 +25,7 @@
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: var(--color-brand-cream);
 }
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;

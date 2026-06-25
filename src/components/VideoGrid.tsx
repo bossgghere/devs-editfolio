@@ -1,15 +1,78 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { VIDEOS } from '../data';
 import { VideoItem } from '../types';
 import { Play, X, Sliders, Music, Hourglass, HelpCircle, Check, Search, Calendar, Star } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function VideoGrid() {
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
   const [isLightboxMuted, setIsLightboxMuted] = useState(false);
+  const gridContainerRef = useRef<HTMLDivElement>(null);
 
   const verticalVideos = VIDEOS.filter((v) => v.category === 'vertical');
   const horizontalVideos = VIDEOS.filter((v) => v.category === 'horizontal');
+
+  const chunkArray = <T,>(arr: T[], size: number): T[][] => {
+    const chunks: T[][] = [];
+    for (let i = 0; i < arr.length; i += size) {
+      chunks.push(arr.slice(i, i + size));
+    }
+    return chunks;
+  };
+
+  const verticalRows = chunkArray(verticalVideos, 4);
+  const horizontalRows = chunkArray(horizontalVideos, 2);
+
+  useGSAP(() => {
+    const rows = gsap.utils.toArray('.project-row');
+    
+    rows.forEach((row: any) => {
+      const items = row.querySelectorAll('.project-card');
+      
+      items.forEach((item: any, idx: number) => {
+        let rot = 0;
+        if (items.length === 2) {
+          rot = idx === 0 ? -12 : 12;
+        } else if (items.length === 3) {
+          rot = idx === 0 ? -12 : idx === 1 ? 0 : 12;
+        } else if (items.length === 4) {
+          if (idx === 0) rot = -15;
+          if (idx === 1) rot = -5;
+          if (idx === 2) rot = 5;
+          if (idx === 3) rot = 15;
+        } else {
+          rot = idx % 2 === 0 ? -10 : 10;
+        }
+
+        gsap.set(item, {
+          y: 200,
+          opacity: 0,
+          rotation: rot,
+          transformOrigin: "center center"
+        });
+      });
+
+      ScrollTrigger.create({
+        trigger: row,
+        start: "top 85%",
+        onEnter: () => {
+          gsap.to(items, {
+            y: 0,
+            rotation: 0,
+            opacity: 1,
+            duration: 1.0,
+            ease: "power3.out",
+            stagger: 0.15,
+          });
+        },
+      });
+    });
+  }, { scope: gridContainerRef });
 
   // Custom renderer for 9:16 Vertical Cards to exactly match the screenshot
   const renderVerticalCardVisual = (video: VideoItem) => {
@@ -545,73 +608,72 @@ export default function VideoGrid() {
   };
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-24" ref={gridContainerRef}>
       {/* 1. SHORTS & REELS SECTION (9:16) */}
-      <div className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-zinc-200 pb-3 gap-2">
+      <div className="space-y-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-zinc-400 pb-3 gap-2">
           <div className="space-y-1">
-            <h3 className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-zinc-900 uppercase">
+            <h3 className="font-display font-black text-3xl tracking-tight text-brand-dark uppercase">
               Shorts & Reels
             </h3>
-            <p className="text-xs font-mono text-zinc-500">
-              Highly engaging vertical 9:16 layout edits designed to capture attention instantly.
+            <p className="text-sm font-mono text-brand-gray font-medium">
+              Highly engaging vertical 9:16 edits designed to capture attention instantly.
             </p>
           </div>
-          <span className="text-[10px] font-mono bg-zinc-100 border border-zinc-200 text-zinc-600 px-3 py-1 rounded-full uppercase self-start sm:self-auto shrink-0">
+          <span className="text-xs font-mono bg-brand-dark text-white border border-brand-dark px-3.5 py-1 rounded-full uppercase self-start sm:self-auto shrink-0 font-bold">
             12 Creative Cuts
           </span>
         </div>
 
-        {/* 12 Vertical items grid: 3 rows of 4 columns on large screens */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {verticalVideos.map((video) => (
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.4 }}
-              key={video.id}
-              onClick={() => setSelectedVideo(video)}
-              className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-zinc-200 hover:border-brand-dark hover:shadow-2xl transition-all duration-300 relative aspect-[9/16]"
-              id={`portfolio-card-${video.id}`}
-            >
-              {renderVerticalCardVisual(video)}
-            </motion.div>
+        {/* Dynamic project-row layout with GSAP trigger animations */}
+        <div className="space-y-12">
+          {verticalRows.map((rowItems, rowIndex) => (
+            <div key={rowIndex} className="project-row flex flex-col md:flex-row gap-8 justify-center">
+              {rowItems.map((video) => (
+                <div
+                  key={video.id}
+                  onClick={() => setSelectedVideo(video)}
+                  className="project-card flex-1 group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-[9/16] w-full max-w-[280px] mx-auto md:mx-0"
+                  id={`portfolio-card-${video.id}`}
+                >
+                  {renderVerticalCardVisual(video)}
+                </div>
+              ))}
+            </div>
           ))}
         </div>
       </div>
 
       {/* 2. COMMERCIAL & YOUTUBE SECTION (16:9) */}
-      <div className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-zinc-200 pb-3 gap-2">
+      <div className="space-y-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-zinc-400 pb-3 gap-2">
           <div className="space-y-1">
-            <h3 className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-zinc-900 uppercase">
+            <h3 className="font-display font-black text-3xl tracking-tight text-brand-dark uppercase">
               Commercial & YouTube
             </h3>
-            <p className="text-xs font-mono text-zinc-500">
+            <p className="text-sm font-mono text-brand-gray font-medium">
               Immersive high-fidelity widescreen 16:9 cinematic edits and branding narratives.
             </p>
           </div>
-          <span className="text-[10px] font-mono bg-zinc-100 border border-zinc-200 text-zinc-600 px-3 py-1 rounded-full uppercase self-start sm:self-auto shrink-0">
+          <span className="text-xs font-mono bg-brand-dark text-white border border-brand-dark px-3.5 py-1 rounded-full uppercase self-start sm:self-auto shrink-0 font-bold">
             9 Widescreen Cuts
           </span>
         </div>
 
-        {/* 9 Horizontal items grid: 3 rows of 3 columns on desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {horizontalVideos.map((video) => (
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.4 }}
-              key={video.id}
-              onClick={() => setSelectedVideo(video)}
-              className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-zinc-200 hover:border-brand-dark hover:shadow-2xl transition-all duration-300 relative aspect-video"
-              id={`portfolio-card-${video.id}`}
-            >
-              {renderHorizontalCardVisual(video)}
-            </motion.div>
+        <div className="space-y-12">
+          {horizontalRows.map((rowItems, rowIndex) => (
+            <div key={rowIndex} className="project-row flex flex-col md:flex-row gap-8 justify-center">
+              {rowItems.map((video) => (
+                <div
+                  key={video.id}
+                  onClick={() => setSelectedVideo(video)}
+                  className="project-card flex-1 group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-video w-full max-w-[500px] mx-auto md:mx-0"
+                  id={`portfolio-card-${video.id}`}
+                >
+                  {renderHorizontalCardVisual(video)}
+                </div>
+              ))}
+            </div>
           ))}
         </div>
       </div>

@@ -73,9 +73,6 @@ export default function App() {
           {/* Left Column: Big Bold Name and Bio Paragraph */}
           <div className="lg:col-span-7 space-y-8 z-10">
             <div className="space-y-4">
-              <span className="text-xs font-mono text-brand-accent tracking-widest font-bold bg-brand-accent/5 px-3 py-1 rounded-full border border-brand-accent/10">
-                I EDIT VISUALS THAT BUILD BRANDS
-              </span>
               <h1 className="font-display font-extrabold text-[4.5rem] sm:text-[6rem] lg:text-[7rem] leading-[0.85] text-brand-dark uppercase tracking-tighter">
                 DEV<br />JENA
               </h1>
@@ -87,7 +84,7 @@ export default function App() {
             <div className="bg-white/60 backdrop-blur-sm border border-zinc-200/80 p-6 sm:p-8 rounded-3xl space-y-4 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 left-0 w-2 h-full bg-brand-dark" />
               <p className="text-sm font-sans text-zinc-700 leading-relaxed font-medium uppercase tracking-tight">
-                I AM AN EXPERIENCED VIDEO EDITOR WITH OVER THREE YEARS OF PROFESSIONAL EXPERIENCE DEDICATED TO TRANSFORMING IDEAS INTO HIGH-QUALITY VISUAL CONTENT. MY WORK IS DEFINED BY A STRONG CREATIVE VISION—I DON'T JUST ASSEMBLE CLIPS; I METICULOUSLY CRAFT NARRATIVES THAT CONNECT WITH AUDIENCES. I BRING ADVANCED TECHNICAL SKILLS IN PACING, SOUND DESIGN, AND COLOR GRADING, ENSURING A SEAMLESS AND POLISHED FINAL PRODUCT EVERY TIME. MY THREE YEARS IN THE INDUSTRY HAVE GIVEN ME A ROBUST UNDERSTANDING OF WHAT IT TAKES TO DELIVER IMPACTFUL VIDEOS, WHETHER FOR MARKETING CAMPAIGNS, DIGITAL PLATFORMS, OR COMPELLING BRAND STORIES. I THRIVE ON BRINGING A UNIQUE, FRESH PERSPECTIVE TO EVERY PROJECT I UNDERTAKE.
+                I AM A CREATIVE VIDEO EDITOR DEDICATED TO TRANSFORMING IDEAS INTO HIGH-QUALITY VISUAL STORIES. WITH THREE+ YEARS OF EXPERIENCE, I BRING ADVANCED PACING, SOUND DESIGN, AND COLOR GRADING TO DELIVER POLISHED, HIGH-IMPACT VIDEOS FOR DIGITAL PLATFORMS AND BRANDS.
               </p>
             </div>
 
@@ -225,7 +222,7 @@ export default function App() {
                   <span>BOOKING OFFICE</span>
                 </div>
                 <p className="text-[11px] font-sans text-zinc-400 uppercase tracking-tight leading-relaxed">
-                  I AM AN EXPERIENCED VIDEO EDITOR WITH OVER THREE YEARS OF PROFESSIONAL EXPERIENCE DEDICATED TO TRANSFORMING IDEAS INTO HIGH-QUALITY VISUAL CONTENT. MY WORK IS DEFINED BY A STRONG CREATIVE VISION...
+                  I AM A CREATIVE VIDEO EDITOR DEDICATED TO TRANSFORMING IDEAS INTO HIGH-QUALITY VISUAL STORIES. WITH THREE+ YEARS OF EXPERIENCE...
                 </p>
               </div>
 
@@ -345,10 +342,6 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono text-zinc-400">
           <div>
             © {new Date().getFullYear()} DEV JENA. ALL RIGHTS RESERVED.
-          </div>
-          <div className="flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
-            <span>I EDIT VISUALS THAT BUILD BRANDS</span>
           </div>
         </div>
       </footer>
