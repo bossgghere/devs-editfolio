@@ -151,7 +151,7 @@ export default function Preloader() {
       </div>
 
       <div className="preloader-header select-none pointer-events-none">
-        <h1 className="opacity-0 font-display font-black tracking-tight text-white uppercase flex">
+        <h1 className="opacity-0 font-display font-black tracking-tight text-white uppercase text-center">
           {name.split('').map((char, index) => (
             <span key={index} className="char-mask overflow-hidden inline-block">
               <span className="char inline-block">
