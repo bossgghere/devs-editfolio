@@ -30,7 +30,7 @@ export default function Footer({ onContactClick }: FooterProps) {
 
   return (
     <footer className="footer-section">
-      <div className="max-w-7xl mx-auto px-6 h-full flex flex-col justify-between py-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 min-h-[350px] md:min-h-[45vh] flex flex-col justify-between py-12 relative z-10">
         
         {/* Footer Header Area */}
         <div className="flex flex-col items-center justify-center text-center my-auto space-y-8">
