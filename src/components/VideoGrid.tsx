@@ -10,18 +10,8 @@ export default function VideoGrid() {
   const [isLightboxMuted, setIsLightboxMuted] = useState(false);
   const gridContainerRef = useRef<HTMLDivElement>(null);
 
-  const verticalVideos = VIDEOS.filter((v) => v.category === 'vertical');
+  const verticalVideos = VIDEOS.filter((v) => v.category === 'vertical').slice(0, 6);
   const horizontalVideos = VIDEOS.filter((v) => v.category === 'horizontal').slice(0, 5);
-
-  const chunkArray = <T,>(arr: T[], size: number): T[][] => {
-    const chunks: T[][] = [];
-    for (let i = 0; i < arr.length; i += size) {
-      chunks.push(arr.slice(i, i + size));
-    }
-    return chunks;
-  };
-
-  const verticalRows = chunkArray(verticalVideos, 4);
 
 
 
@@ -571,20 +561,33 @@ export default function VideoGrid() {
 
         {/* Dynamic project-row layout with GSAP trigger animations */}
         <div className="space-y-12">
-          {verticalRows.map((rowItems, rowIndex) => (
-            <div key={rowIndex} className="project-row flex flex-col md:flex-row gap-8 justify-center">
-              {rowItems.map((video) => (
-                <div
-                  key={video.id}
-                  onClick={() => setSelectedVideo(video)}
-                  className="project-card flex-1 group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-[9/16] w-full max-w-[280px] mx-auto md:mx-0"
-                  id={`portfolio-card-${video.id}`}
-                >
-                  {renderVerticalCardVisual(video)}
-                </div>
-              ))}
-            </div>
-          ))}
+          {/* Row 1: 4 cards */}
+          <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
+            {verticalVideos.slice(0, 4).map((video) => (
+              <div
+                key={video.id}
+                onClick={() => setSelectedVideo(video)}
+                className="project-card w-full max-w-[280px] md:max-w-none md:w-[calc(25%-24px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-[9/16]"
+                id={`portfolio-card-${video.id}`}
+              >
+                {renderVerticalCardVisual(video)}
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2: 2 cards */}
+          <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
+            {verticalVideos.slice(4, 6).map((video) => (
+              <div
+                key={video.id}
+                onClick={() => setSelectedVideo(video)}
+                className="project-card w-full max-w-[280px] md:w-[calc(25%-24px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-[9/16]"
+                id={`portfolio-card-${video.id}`}
+              >
+                {renderVerticalCardVisual(video)}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
