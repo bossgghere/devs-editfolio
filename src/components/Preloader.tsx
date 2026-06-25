@@ -127,7 +127,7 @@ export default function Preloader() {
         '-=0.5'
       );
     },
-    { scope: preloaderRef, dependencies: [showPreloader] }
+    { scope: preloaderRef, dependencies: [] }
   );
 
   if (!showPreloader) {
