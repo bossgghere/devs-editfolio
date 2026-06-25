@@ -146,27 +146,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
       {/* Contact Page Footer (Fully Statically Positioned at the bottom) */}
       <div className="w-full max-w-7xl mx-auto border-t border-brand-dark/15 pt-6 mt-auto z-20">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-mono text-zinc-500 font-extrabold uppercase tracking-widest">
-          <p className="select-none">
-            Code & Logic
-          </p>
-
           <div className="flex items-center gap-6 font-bold tracking-wider">
-            <a
-              className="hover:text-brand-accent transition-all"
-              href="https://github.com/bossgghere"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-            <a
-              className="hover:text-brand-accent transition-all"
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
-            </a>
             <a
               className="hover:text-brand-accent transition-all"
               href="https://www.instagram.com/gamer__dev"
