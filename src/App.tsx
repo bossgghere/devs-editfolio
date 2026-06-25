@@ -49,22 +49,22 @@ export default function App() {
               <div className="bg-white/60 backdrop-blur-sm border border-zinc-200/80 p-6 sm:p-8 rounded-3xl space-y-4 shadow-sm relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-2 h-full bg-brand-dark" />
                 <p className="text-sm font-sans text-zinc-700 leading-relaxed font-medium uppercase tracking-tight">
-                  I AM A CREATIVE VIDEO EDITOR DEDICATED TO TRANSFORMING IDEAS INTO HIGH-QUALITY VISUAL STORIES. WITH THREE+ YEARS OF EXPERIENCE, I BRING ADVANCED PACING, SOUND DESIGN, AND COLOR GRADING TO DELIVER POLISHED, HIGH-IMPACT VIDEOS FOR DIGITAL PLATFORMS AND BRANDS.
+                  I AM A CREATIVE VIDEO EDITOR DEDICATED TO TRANSFORMING IDEAS INTO HIGH-QUALITY VISUAL STORIES. WITH TWO YEARS OF EXPERIENCE, I BRING ADVANCED PACING, SOUND DESIGN, AND COLOR GRADING TO DELIVER POLISHED, HIGH-IMPACT VIDEOS FOR DIGITAL PLATFORMS AND BRANDS.
                 </p>
               </div>
 
               {/* Quick Stats Grid */}
               <div className="grid grid-cols-3 gap-4 text-center font-mono bg-white border border-zinc-200 p-4 rounded-2xl shadow-sm">
                 <div>
-                  <div className="text-2xl font-black text-brand-dark">3+</div>
+                  <div className="text-2xl font-black text-brand-dark">2</div>
                   <div className="text-[10px] text-zinc-500 uppercase tracking-wider font-semibold">YEARS OF PACE</div>
                 </div>
                 <div className="border-x border-zinc-100">
-                  <div className="text-2xl font-black text-brand-dark">120+</div>
+                  <div className="text-2xl font-black text-brand-dark">100+</div>
                   <div className="text-[10px] text-zinc-500 uppercase tracking-wider font-semibold">PROJECTS COMPLETED</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-black text-brand-dark">15M+</div>
+                  <div className="text-2xl font-black text-brand-dark">1.5M</div>
                   <div className="text-[10px] text-zinc-500 uppercase tracking-wider font-semibold">TOTAL VIEWS DELIVERED</div>
                 </div>
               </div>
