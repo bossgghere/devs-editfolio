@@ -18,14 +18,14 @@ export default function App() {
       <Preloader />
       <div className="min-h-screen blueprint-bg text-brand-dark font-sans selection:bg-brand-accent selection:text-white">
       
-      {/* Fixed Floating Menu Button */}
+      {/* Fixed Floating Contact Button */}
       <button 
         onClick={() => setCurrentPage('contact')}
         className="fixed top-6 right-6 z-50 bg-brand-dark hover:bg-brand-accent text-white px-6 py-3 rounded-full text-xs font-mono font-bold tracking-widest uppercase transition-all shadow-[0_4px_20px_rgba(0,0,0,0.12)] hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2"
         id="fixed-menu-btn"
       >
         <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
-        Menu
+        Contact
       </button>
 
 
