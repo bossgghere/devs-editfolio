@@ -100,6 +100,31 @@ export default function App() {
           </div>
           <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest mt-0.5">Key</span>
         </div>
+
+        {/* Floating Minimal Widget 4: Color LUT Circle */}
+        <div className="absolute right-[5%] top-[15%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2.5 rounded-2xl shadow-[3px_3px_0px_#1a1614] rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <div className="w-6.5 h-6.5 rounded-full bg-gradient-to-tr from-rose-500 via-emerald-400 to-sky-400 border border-brand-dark/30 animate-[spin_10s_linear_infinite]" />
+          <span className="text-[6px] font-mono font-black text-zinc-400 uppercase tracking-widest mt-0.5">LUT</span>
+        </div>
+
+        {/* Floating Minimal Widget 6: RGB parade graph */}
+        <div className="absolute right-[2%] bottom-[22%] hidden xl:block bg-white border-2 border-brand-dark p-3 rounded-2xl shadow-[3px_3px_0px_#1a1614] rotate-3 hover:rotate-0 transition-transform duration-300 w-32 pointer-events-none select-none z-10">
+          <div className="h-8 bg-zinc-950 rounded-lg flex items-end justify-between p-1 border border-brand-dark/10">
+            <div className="w-[28%] h-full flex items-end gap-[0.5px] opacity-80">
+              <span className="w-[30%] h-[30%] bg-rose-500" />
+              <span className="w-[30%] h-[65%] bg-rose-500" />
+            </div>
+            <div className="w-[28%] h-full flex items-end gap-[0.5px] opacity-80">
+              <span className="w-[30%] h-[40%] bg-emerald-500" />
+              <span className="w-[30%] h-[70%] bg-emerald-500" />
+            </div>
+            <div className="w-[28%] h-full flex items-end gap-[0.5px] opacity-80">
+              <span className="w-[30%] h-[20%] bg-sky-500" />
+              <span className="w-[30%] h-[60%] bg-sky-500" />
+            </div>
+          </div>
+        </div>
+
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 relative z-10">
           {/* HERO SECTION */}
           <section className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
