@@ -36,12 +36,16 @@ export default function App() {
         <div className="absolute inset-0 opacity-[0.035] pointer-events-none bg-[radial-gradient(var(--color-brand-dark)_1.5px,transparent_1.5px)] [background-size:24px_24px]" />
         
         {/* Large ambient orange-beige glow center spot */}
-        <div className="absolute w-[600px] h-[600px] rounded-full bg-brand-accent/5 blur-[120px] pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-
-
-
-
-
+        <div className="absolute w-[600px] h-[600px] rounded-full bg-brand-accent/5 blur-[120px] pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />        {/* Floating Minimal Widget 3: Compact Timeline */}
+        <div className="absolute left-[2%] bottom-[22%] hidden xl:block bg-white border-2 border-brand-dark p-3 rounded-2xl shadow-[3px_3px_0px_#1a1614] -rotate-3 hover:rotate-0 transition-transform duration-300 w-36 pointer-events-none select-none z-10">
+          <div className="flex items-center gap-1 mb-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <span className="text-[6px] font-mono font-black text-zinc-400 uppercase tracking-widest">V1</span>
+          </div>
+          <div className="h-3.5 bg-brand-cream/35 border border-brand-dark/15 rounded-md flex items-center px-1">
+            <div className="w-2/3 h-2 bg-brand-accent/20 border border-brand-accent/35 rounded-xs" />
+          </div>
+        </div>
         {/* Floating Minimal Widget: Long Timeline Track (Top Middle) */}
         <div className="absolute left-[36%] top-[10%] hidden xl:block bg-white border-2 border-brand-dark p-3.5 rounded-2xl shadow-[4px_4px_0px_#1a1614] -rotate-1 hover:rotate-0 transition-transform duration-300 w-80 pointer-events-none select-none z-10">
           <div className="flex items-center justify-between mb-2">
@@ -87,7 +91,15 @@ export default function App() {
             </div>
           </div>
         </div>
-
+        {/* Floating Minimal Widget 7: Keyframe Diamond Tracker */}
+        <div className="absolute left-[7%] top-[60%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2 rounded-xl shadow-[3px_3px_0px_#1a1614] -rotate-3 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <div className="flex items-center gap-1.5 h-3">
+            <span className="w-1.5 h-1.5 bg-brand-accent rotate-45 border border-brand-dark/20" />
+            <span className="w-6 h-[2px] bg-brand-dark/15" />
+            <span className="w-1.5 h-1.5 bg-brand-accent rotate-45 border border-brand-dark/20" />
+          </div>
+          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest mt-0.5">Key</span>
+        </div>
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 relative z-10">
           {/* HERO SECTION */}
           <section className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
