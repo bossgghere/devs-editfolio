@@ -1,45 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Mail, Inbox, Globe, Sparkles, MapPin } from 'lucide-react';
-import ContactForm from './ContactForm';
-import LeadInbox from './LeadInbox';
+import React from 'react';
+import { ArrowLeft, Mail } from 'lucide-react';
+import { motion } from 'motion/react';
 
 interface ContactPageProps {
   onBackToHome: () => void;
 }
 
 export default function ContactPage({ onBackToHome }: ContactPageProps) {
-  const [activeTab, setActiveTab] = useState<'form' | 'inbox'>('form');
-  const [leadsCount, setLeadsCount] = useState(0);
-  const [refreshTrigger, setRefreshTrigger] = useState(0);
-
-  // Read leads count on mount and when refreshTrigger changes
-  useEffect(() => {
-    const stored = localStorage.getItem('devjena_portfolio_leads');
-    if (stored) {
-      try {
-        const leads = JSON.parse(stored);
-        setLeadsCount(leads.length);
-      } catch (e) {
-        console.error(e);
-      }
-    } else {
-      setLeadsCount(2); // default seeds count
-    }
-  }, [refreshTrigger]);
-
-  const handleMessageSent = () => {
-    setRefreshTrigger(prev => prev + 1);
-    // Switch to inbox tab after a small delay to let the success animation show
-    setTimeout(() => {
-      setActiveTab('inbox');
-    }, 1500);
-  };
-
   return (
     <section className="contact-section-page min-h-screen flex flex-col justify-between blueprint-bg select-none">
       
-      {/* Top Navigation Bar */}
-      <div className="w-full relative px-6 py-6 z-20 flex items-center justify-between border-b border-brand-dark/5">
+      {/* Top Bar Navigation */}
+      <div className="w-full relative px-6 py-6 z-20 flex items-center justify-between">
         <button 
           onClick={onBackToHome}
           className="flex items-center gap-2 bg-white text-brand-dark border-2 border-brand-dark px-5 py-2.5 rounded-full text-xs font-mono font-bold tracking-widest uppercase transition-all shadow-[3px_3px_0px_#1a1614] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] cursor-pointer"
@@ -48,142 +20,111 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
           <ArrowLeft size={14} />
           Back to Home
         </button>
-
-        {/* Live Clock / Status */}
-        <div className="hidden sm:flex items-center gap-2 bg-brand-cream border border-brand-dark/15 px-4 py-2 rounded-full text-[10px] font-mono uppercase tracking-wider font-extrabold text-zinc-600">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          Accepting Q3 Projects
-        </div>
       </div>
 
-      {/* Main Container Layout */}
-      <div className="max-w-7xl w-full mx-auto px-6 py-10 md:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10 flex-grow">
+      {/* Main Grid Layout for Statement & 4 components */}
+      <div className="max-w-6xl w-full mx-auto px-6 py-10 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative z-10 flex-grow">
         
-        {/* Left Column: Big Bold Statement & Contact Meta-data */}
-        <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-8">
+        {/* Left Column: Big Bold Statement */}
+        <motion.div 
+          className="md:col-span-6 select-none"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="font-display font-black text-6xl sm:text-7xl lg:text-8xl text-brand-dark uppercase tracking-tighter leading-none">
+            THINGS IN <br />
+            <span 
+              className="text-transparent"
+              style={{ WebkitTextStroke: '2.5px var(--color-brand-dark)' }}
+            >
+              MOTION
+            </span> <br />
+            STAY <br />
+            INTERESTING.
+          </h2>
+        </motion.div>
+
+        {/* Right Column: 4 Cohesive Neo-Brutalist Components */}
+        <div className="md:col-span-6 space-y-6">
           
-          <div className="space-y-4">
-            <h2 className="font-display font-black text-6xl sm:text-7xl xl:text-8xl text-brand-dark uppercase tracking-tighter leading-none">
-              THINGS IN <br />
-              <span 
-                className="text-transparent"
-                style={{ WebkitTextStroke: '2px var(--color-brand-dark)' }}
-              >
-                MOTION
-              </span> <br />
-              STAY <br />
-              INTERESTING.
-            </h2>
-            <p className="text-xs sm:text-sm font-sans font-bold uppercase tracking-tight text-zinc-600 max-w-md leading-relaxed">
-              I edit frame-by-frame stories that capture retention from the first second. Fill out the brief parameters to lock in a timeline or review local inbox inquiries instantly.
+          {/* Component 1: Focus */}
+          <motion.div 
+            className="bg-white border-2 border-brand-dark p-6 rounded-3xl shadow-[5px_5px_0px_#1a1614] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300 select-none"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            <p className="text-[10px] font-mono text-zinc-500 font-extrabold uppercase tracking-widest mb-3 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 bg-brand-accent rounded-full animate-ping" />
+              Focus
             </p>
-          </div>
-
-          {/* Quick technical stats/meta rows */}
-          <div className="space-y-4 bg-white border-2 border-brand-dark p-5 rounded-3xl shadow-[5px_5px_0px_#1a1614]">
-            
-            {/* Base Row */}
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-brand-cream rounded-xl border border-brand-dark/10">
-                <MapPin size={14} className="text-brand-dark" />
-              </div>
-              <div>
-                <p className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest font-extrabold">Base location</p>
-                <p className="text-xs font-sans font-black text-brand-dark uppercase">Bhubaneswar, Odisha, India</p>
-              </div>
+            <div className="space-y-1.5 text-brand-dark font-sans font-black uppercase text-xs sm:text-sm tracking-tight">
+              <p>Cinematic Video Assembly</p>
+              <p>Sound Design & Foley</p>
+              <p>Color Grading & Grading LUTS</p>
             </div>
+          </motion.div>
 
-            {/* Specialties Row */}
-            <div className="flex items-start gap-3 border-t border-brand-dark/5 pt-4">
-              <div className="p-2 bg-brand-cream rounded-xl border border-brand-dark/10">
-                <Sparkles size={14} className="text-brand-dark" />
-              </div>
-              <div className="space-y-1">
-                <p className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest font-extrabold">Creative Focus</p>
-                <p className="text-xs font-sans font-black text-brand-dark uppercase leading-tight">
-                  Pacing, Foley Sound Design, Grading, Retention Engineering
-                </p>
-              </div>
+          {/* Component 2: Base */}
+          <motion.div 
+            className="bg-white border-2 border-brand-dark p-6 rounded-3xl shadow-[5px_5px_0px_#1a1614] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300 select-none"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
+            <p className="text-[10px] font-mono text-zinc-500 font-extrabold uppercase tracking-widest mb-2">
+              Base
+            </p>
+            <p className="font-sans font-black text-brand-dark text-xs sm:text-sm uppercase tracking-tight">
+              Bhubaneswar, Odisha, India
+            </p>
+          </motion.div>
+
+          {/* Component 3: Mail Button */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+          >
+            <a 
+              href="mailto:DEVJENA03@GMAIL.COM"
+              className="inline-flex items-center justify-center gap-3 bg-brand-accent text-white border-2 border-brand-dark px-8 py-5 rounded-3xl text-sm font-mono font-black tracking-widest uppercase transition-all shadow-[5px_5px_0px_#1a1614] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] w-full text-center cursor-pointer"
+            >
+              <Mail size={16} />
+              DEVJENA03@GMAIL.COM
+            </a>
+          </motion.div>
+
+          {/* Component 4: Credits */}
+          <motion.div 
+            className="bg-white border-2 border-brand-dark p-6 rounded-3xl shadow-[5px_5px_0px_#1a1614] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300 select-none"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
+          >
+            <p className="text-[10px] font-mono text-zinc-500 font-extrabold uppercase tracking-widest mb-2">
+              Credits
+            </p>
+            <div className="flex justify-between items-center text-xs font-sans font-black text-brand-dark uppercase tracking-tight">
+              <span>Created by Dev Jena</span>
+              <span className="font-mono text-zinc-400">Edition 2026</span>
             </div>
-
-            {/* Direct contact Row */}
-            <div className="flex items-center gap-3 border-t border-brand-dark/5 pt-4">
-              <div className="p-2 bg-brand-cream rounded-xl border border-brand-dark/10">
-                <Globe size={14} className="text-brand-dark" />
-              </div>
-              <div>
-                <p className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest font-extrabold">Inquire directly</p>
-                <a 
-                  href="mailto:DEVJENA03@GMAIL.COM" 
-                  className="text-xs font-mono font-black text-brand-accent hover:underline uppercase"
-                >
-                  DEVJENA03@GMAIL.COM
-                </a>
-              </div>
-            </div>
-
-          </div>
+          </motion.div>
 
         </div>
-
-        {/* Right Column: Tabbed interactive Neo-brutalist panel */}
-        <div className="lg:col-span-7 bg-white border-2 border-brand-dark p-6 sm:p-8 rounded-3xl shadow-[6px_6px_0px_#1a1614]">
-          
-          {/* Tab switches */}
-          <div className="grid grid-cols-2 gap-3 mb-6">
-            <button
-              onClick={() => setActiveTab('form')}
-              className={`flex items-center justify-center gap-2 py-3 rounded-2xl text-[10px] font-mono font-extrabold uppercase tracking-wider border-2 border-brand-dark transition-all duration-200 cursor-pointer ${
-                activeTab === 'form'
-                  ? 'bg-brand-dark text-white shadow-none translate-y-0.5'
-                  : 'bg-zinc-50 text-brand-dark shadow-[3px_3px_0px_#1a1614] hover:bg-zinc-100 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_#1a1614]'
-              }`}
-            >
-              <Mail size={12} />
-              Reel Brief Form
-            </button>
-
-            <button
-              onClick={() => setActiveTab('inbox')}
-              className={`flex items-center justify-center gap-2 py-3 rounded-2xl text-[10px] font-mono font-extrabold uppercase tracking-wider border-2 border-brand-dark transition-all duration-200 cursor-pointer relative ${
-                activeTab === 'inbox'
-                  ? 'bg-brand-dark text-white shadow-none translate-y-0.5'
-                  : 'bg-zinc-50 text-brand-dark shadow-[3px_3px_0px_#1a1614] hover:bg-zinc-100 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_#1a1614]'
-              }`}
-            >
-              <Inbox size={12} />
-              Admin Inbox
-              {leadsCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 flex h-4.5 min-w-4.5 px-1 items-center justify-center rounded-full bg-brand-accent text-white font-mono text-[8px] font-extrabold border border-brand-dark animate-bounce">
-                  {leadsCount}
-                </span>
-              )}
-            </button>
-          </div>
-
-          {/* Dynamic Content Pane */}
-          <div className="bg-[#fcfcf9] p-3 rounded-2xl border border-brand-dark/10">
-            {activeTab === 'form' ? (
-              <ContactForm onMessageSent={handleMessageSent} />
-            ) : (
-              <LeadInbox />
-            )}
-          </div>
-
-        </div>
-
       </div>
 
-      {/* Page Footer bar */}
+      {/* Contact Page Footer */}
       <div className="contact-footer w-full select-none mt-auto">
         <div className="container-footer">
-          <p className="select-none font-mono text-[9px] text-zinc-400 font-extrabold uppercase tracking-widest">
-            Visual Storyteller
+          <p className="select-none font-mono text-[10px] text-zinc-400 font-extrabold uppercase tracking-widest">
+            Code & Logic
           </p>
 
           <div className="contact-socials font-mono text-xs uppercase tracking-wider font-extrabold">
             <a
-              className="text-zinc-400 hover:text-brand-accent transition-all"
+              className="text-zinc-500 hover:text-brand-accent transition-all"
               href="https://github.com/bossgghere"
               target="_blank"
               rel="noreferrer"
@@ -191,7 +132,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
               GitHub
             </a>
             <a
-              className="text-zinc-400 hover:text-brand-accent transition-all"
+              className="text-zinc-500 hover:text-brand-accent transition-all"
               href="https://linkedin.com"
               target="_blank"
               rel="noreferrer"
@@ -199,7 +140,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
               LinkedIn
             </a>
             <a
-              className="text-zinc-400 hover:text-brand-accent transition-all"
+              className="text-zinc-500 hover:text-brand-accent transition-all"
               href="https://instagram.com/devjena"
               target="_blank"
               rel="noreferrer"
@@ -208,7 +149,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
             </a>
           </div>
           
-          <p className="select-none font-mono text-[9px] text-zinc-400 font-extrabold uppercase tracking-widest">
+          <p className="select-none font-mono text-[10px] text-zinc-400 font-extrabold uppercase tracking-widest">
             &copy; {new Date().getFullYear()} Dev Jena
           </p>
         </div>
