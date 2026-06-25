@@ -602,138 +602,144 @@ export default function VideoGrid() {
   };
 
   return (
-    <div className="space-y-24" ref={gridContainerRef}>
-      {/* 1. SHORTS & REELS SECTION (9:16) */}
-      <div className="space-y-8">
-        <div className="text-center py-6">
-          <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
-            SHORTS & REELS
-          </h3>
-          <div className="w-16 h-1 bg-brand-accent/45 mx-auto mt-2 rounded" />
-        </div>
-
-        {/* Dynamic project-row layout with GSAP trigger animations */}
-        <div className="space-y-12">
-          {/* Row 1: 4 cards */}
-          <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
-            {verticalVideos.slice(0, 4).map((video) => (
-              <div
-                key={video.id}
-                onClick={() => setSelectedVideo(video)}
-                className="project-card w-full max-w-[280px] md:max-w-none md:w-[calc(25%-24px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-[9/16]"
-                id={`portfolio-card-${video.id}`}
-              >
-                {renderVerticalCardVisual(video)}
-              </div>
-            ))}
+    <div ref={gridContainerRef} className="select-none">
+      {/* 1. SHORTS & REELS SECTION (9:16) - Beige BG */}
+      <section className="py-20 bg-brand-cream relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
+          <div className="text-center py-6">
+            <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
+              SHORTS & REELS
+            </h3>
+            <div className="w-16 h-1 bg-brand-accent/45 mx-auto mt-2 rounded" />
           </div>
 
-          {/* Row 2: 2 cards */}
-          <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
-            {verticalVideos.slice(4, 6).map((video) => (
-              <div
-                key={video.id}
-                onClick={() => setSelectedVideo(video)}
-                className="project-card w-full max-w-[280px] md:w-[calc(25%-24px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-[9/16]"
-                id={`portfolio-card-${video.id}`}
-              >
-                {renderVerticalCardVisual(video)}
-              </div>
-            ))}
+          <div className="space-y-12">
+            {/* Row 1: 4 cards */}
+            <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
+              {verticalVideos.slice(0, 4).map((video) => (
+                <div
+                  key={video.id}
+                  onClick={() => setSelectedVideo(video)}
+                  className="project-card w-full max-w-[280px] md:max-w-none md:w-[calc(25%-24px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-[9/16]"
+                  id={`portfolio-card-${video.id}`}
+                >
+                  {renderVerticalCardVisual(video)}
+                </div>
+              ))}
+            </div>
+
+            {/* Row 2: 2 cards */}
+            <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
+              {verticalVideos.slice(4, 6).map((video) => (
+                <div
+                  key={video.id}
+                  onClick={() => setSelectedVideo(video)}
+                  className="project-card w-full max-w-[280px] md:w-[calc(25%-24px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-[9/16]"
+                  id={`portfolio-card-${video.id}`}
+                >
+                  {renderVerticalCardVisual(video)}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 2. COMMERCIAL & YOUTUBE SECTION (16:9) */}
-      <div className="space-y-8">
-        <div className="text-center py-6">
-          <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
-            COMMERCIAL & YOUTUBE
-          </h3>
-          <div className="w-16 h-1 bg-brand-accent/45 mx-auto mt-2 rounded" />
-        </div>
-
-        <div className="space-y-12">
-          {/* Row 1: 3 cards */}
-          <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
-            {horizontalVideos.slice(0, 3).map((video) => (
-              <div
-                key={video.id}
-                onClick={() => setSelectedVideo(video)}
-                className="project-card w-full max-w-[500px] md:max-w-none md:w-[calc(33.333%-22px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-video"
-                id={`portfolio-card-${video.id}`}
-              >
-                {renderHorizontalCardVisual(video)}
-              </div>
-            ))}
+      {/* 2. COMMERCIAL & YOUTUBE SECTION (16:9) - Black BG */}
+      <section className="py-24 blueprint-bg-dark text-brand-cream border-t border-b border-brand-dark relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
+          <div className="text-center py-6">
+            <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-cream uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
+              COMMERCIAL & YOUTUBE
+            </h3>
+            <div className="w-16 h-1 bg-brand-accent/45 mx-auto mt-2 rounded" />
           </div>
 
-          {/* Row 2: 2 cards */}
-          <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
-            {horizontalVideos.slice(3, 5).map((video) => (
-              <div
-                key={video.id}
-                onClick={() => setSelectedVideo(video)}
-                className="project-card w-full max-w-[500px] md:w-[calc(33.333%-22px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-video"
-                id={`portfolio-card-${video.id}`}
-              >
-                {renderHorizontalCardVisual(video)}
-              </div>
-            ))}
+          <div className="space-y-12">
+            {/* Row 1: 3 cards */}
+            <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
+              {horizontalVideos.slice(0, 3).map((video) => (
+                <div
+                  key={video.id}
+                  onClick={() => setSelectedVideo(video)}
+                  className="project-card w-full max-w-[500px] md:max-w-none md:w-[calc(33.333%-22px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#ff6e14] transition-all duration-300 relative aspect-video"
+                  id={`portfolio-card-${video.id}`}
+                >
+                  {renderHorizontalCardVisual(video)}
+                </div>
+              ))}
+            </div>
+
+            {/* Row 2: 2 cards */}
+            <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
+              {horizontalVideos.slice(3, 5).map((video) => (
+                <div
+                  key={video.id}
+                  onClick={() => setSelectedVideo(video)}
+                  className="project-card w-full max-w-[500px] md:w-[calc(33.333%-22px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#ff6e14] transition-all duration-300 relative aspect-video"
+                  id={`portfolio-card-${video.id}`}
+                >
+                  {renderHorizontalCardVisual(video)}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 3. TOOLS & APPS SECTION */}
-      <div className="space-y-12">
-        <div className="text-center py-6">
-          <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
-            TOOLS & APPS
-          </h3>
-          <div className="w-16 h-1 bg-brand-accent/45 mx-auto mt-2 rounded" />
-        </div>
+      {/* 3. TOOLS & APPS SECTION - Beige BG */}
+      <section className="py-20 bg-brand-cream relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
+          <div className="text-center py-6">
+            <h3 className="font-display font-black text-5xl sm:text-6xl text-brand-dark uppercase tracking-tighter hover:text-brand-accent transition-colors duration-300 select-none">
+              TOOLS & APPS
+            </h3>
+            <div className="w-16 h-1 bg-brand-accent/45 mx-auto mt-2 rounded" />
+          </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {TOOLS.map((tool, idx) => (
-            <div 
-              key={idx} 
-              className="bg-white border-2 border-brand-dark p-6 sm:p-8 rounded-3xl shadow-[6px_6px_0px_#1a1614] hover:shadow-[3px_3px_0px_#1a1614] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-300 relative overflow-hidden group flex flex-col justify-between"
-            >
-              {/* Technical dot overlay inside cards */}
-              <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#1a1614_1px,transparent_1px)] [background-size:12px_12px]" />
-              
-              <div className="space-y-4 relative z-10">
-                {/* Header: Icon badge and Name */}
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 rounded-xl border-2 flex items-center justify-center font-display text-2xl font-black select-none ${tool.color}`}>
-                    {tool.icon}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {TOOLS.map((tool, idx) => (
+              <div 
+                key={idx} 
+                className="bg-white border-2 border-brand-dark p-6 sm:p-8 rounded-3xl shadow-[6px_6px_0px_#1a1614] hover:shadow-[3px_3px_0px_#1a1614] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-300 relative overflow-hidden group flex flex-col justify-between"
+              >
+                {/* Technical dot overlay inside cards */}
+                <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#1a1614_1px,transparent_1px)] [background-size:12px_12px]" />
+                
+                <div className="space-y-4 relative z-10">
+                  {/* Header: Icon badge and Name */}
+                  <div className="flex items-center gap-4">
+                    <div className={`w-12 h-12 rounded-xl border-2 flex items-center justify-center font-display text-2xl font-black select-none ${tool.color}`}>
+                      {tool.icon}
+                    </div>
+                    <h4 className="font-display font-extrabold text-xl sm:text-2xl text-brand-dark uppercase tracking-tight leading-none">
+                      {tool.name}
+                    </h4>
                   </div>
-                  <h4 className="font-display font-extrabold text-xl sm:text-2xl text-brand-dark uppercase tracking-tight leading-none">
-                    {tool.name}
-                  </h4>
+
+                  {/* Description */}
+                  <p className="text-xs font-sans text-zinc-600 leading-relaxed font-bold uppercase tracking-tight">
+                    {tool.desc}
+                  </p>
                 </div>
 
-                {/* Description */}
-                <p className="text-xs font-sans text-zinc-600 leading-relaxed font-bold uppercase tracking-tight">
-                  {tool.desc}
-                </p>
+                {/* Capabilities list */}
+                <div className="mt-6 pt-4 border-t border-brand-dark/10 flex flex-wrap gap-1.5 relative z-10">
+                  {tool.capabilities.map((cap, i) => (
+                    <span 
+                      key={i} 
+                      className="text-[9px] font-mono font-bold uppercase bg-brand-cream/40 text-brand-dark border border-brand-dark/10 px-2 py-0.5 rounded"
+                    >
+                      {cap}
+                    </span>
+                  ))}
+                </div>
               </div>
-
-              {/* Capabilities list */}
-              <div className="mt-6 pt-4 border-t border-brand-dark/10 flex flex-wrap gap-1.5 relative z-10">
-                {tool.capabilities.map((cap, i) => (
-                  <span 
-                    key={i} 
-                    className="text-[9px] font-mono font-bold uppercase bg-brand-cream/40 text-brand-dark border border-brand-dark/10 px-2 py-0.5 rounded"
-                  >
-                    {cap}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
+
 
       {/* Lightbox Modal Window */}
       <AnimatePresence>

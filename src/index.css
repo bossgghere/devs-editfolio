@@ -23,6 +23,14 @@
   background-size: 100% 100%, 48px 48px, 48px 48px;
 }
 
+.blueprint-bg-dark {
+  background-color: var(--color-brand-dark);
+  background-image: 
+    linear-gradient(rgba(227, 227, 219, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(227, 227, 219, 0.015) 1px, transparent 1px);
+  background-size: 48px 48px, 48px 48px;
+}
+
 /* Scrollbar customizations */
 ::-webkit-scrollbar {
   width: 8px;

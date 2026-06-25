@@ -139,42 +139,37 @@ export default function App() {
         </div>
       </div>
 
-      {/* Main Page Content Wrapper (Portfolio & Showreel) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-24 space-y-24">
-
-        {/* PORTFOLIO SECTION */}
-        <section id="portfolio-section" className="space-y-12">
+      {/* PORTFOLIO SHOWREEL SECTION - Full Width Dark */}
+      <section id="portfolio-section" className="blueprint-bg-dark text-brand-cream py-24 border-t border-b border-brand-dark relative z-10 select-none">
+        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 space-y-16">
           
-          {/* Section Title exactly matching the futuristic thick geometric "PORTFOLIO" title in screenshot */}
-          <div className="text-center space-y-3">
-            <h2 className="font-display font-black text-6xl sm:text-7xl lg:text-8xl text-brand-dark uppercase tracking-tighter leading-none select-none">
+          {/* Section Title matching Dev name style but centered */}
+          <div className="text-center space-y-4">
+            <h2 className="font-display font-black text-6xl sm:text-7xl lg:text-8xl text-brand-cream uppercase tracking-tighter leading-none select-none">
               PORTFOLIO
             </h2>
-            <p className="text-sm font-mono text-zinc-500 max-w-xl mx-auto font-medium">
+            <p className="text-xs font-mono text-zinc-400 max-w-xl mx-auto font-medium uppercase tracking-wider">
               Visual stories that shape brands and captivate audiences worldwide
             </p>
-            <div className="w-16 h-1 bg-brand-dark mx-auto rounded" />
+            <div className="w-16 h-1 bg-brand-accent mx-auto rounded" />
           </div>
 
-          {/* Interactive Show Reel player with grading comparisons */}
+          {/* Showreel Player Wrapper */}
           <div className="space-y-4">
-            <div className="flex items-center justify-between px-2">
-              <h3 className="font-mono text-xs font-bold text-zinc-700 uppercase tracking-widest flex items-center gap-1.5">
+            <div className="flex items-center justify-between px-2 text-zinc-300">
+              <h3 className="font-mono text-xs font-bold uppercase tracking-widest flex items-center gap-1.5">
                 <Scissors size={14} className="text-brand-accent" />
                 Featured Show Reel
               </h3>
-              <span className="text-[10px] font-mono text-zinc-400">CLICK TO PLAY WORKSPACE</span>
+              <span className="text-[10px] font-mono text-zinc-500">CLICK TO PLAY WORKSPACE</span>
             </div>
             <ShowreelPlayer />
           </div>
+        </div>
+      </section>
 
-          {/* Video Grid Component */}
-          <div className="space-y-6">
-            <VideoGrid />
-          </div>
-        </section>
-
-      </div>
+      {/* Video Grid Component (Handles alternating full-width bg sections inside) */}
+      <VideoGrid />
 
       {/* FOOTER */}
       <Footer onContactClick={() => setCurrentPage('contact')} />
