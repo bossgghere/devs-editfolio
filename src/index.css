@@ -39,7 +39,6 @@
   background: #94a3b8;
 }
 
-/* Premium Footer Section */
 .footer-section {
   position: relative;
   width: 100%;
@@ -47,6 +46,11 @@
   background-color: var(--color-brand-dark);
   color: var(--color-brand-cream);
   overflow: hidden;
+  /* Dark blueprint pattern */
+  background-image: 
+    linear-gradient(rgba(227, 227, 219, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(227, 227, 219, 0.015) 1px, transparent 1px);
+  background-size: 48px 48px, 48px 48px;
 }
 
 @media (max-width: 1000px) {
@@ -55,7 +59,7 @@
   }
 }
 
-/* Bouncing Screensaver Contact Page Styles */
+/* Enhanced Contact Page Styles with Blueprint BG */
 .contact-section-page {
   position: relative;
   width: 100%;
@@ -66,6 +70,12 @@
   background-color: var(--color-brand-cream);
   color: var(--color-brand-dark);
   overflow: hidden;
+  /* Blueprint background pattern for the contact page */
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 110, 20, 0.04), transparent 60%),
+    linear-gradient(rgba(26, 22, 20, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 22, 20, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
 }
 
 

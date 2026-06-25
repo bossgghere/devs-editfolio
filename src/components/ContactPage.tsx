@@ -12,7 +12,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
       {/* Back button */}
       <button 
         onClick={onBackToHome}
-        className="absolute top-6 left-6 flex items-center gap-2 bg-brand-dark/10 hover:bg-brand-dark hover:text-white px-4 py-2.5 rounded-full text-xs font-mono font-bold tracking-widest uppercase transition-all z-20 cursor-pointer"
+        className="absolute top-6 left-6 flex items-center gap-2 bg-white text-brand-dark border-2 border-brand-dark px-5 py-2.5 rounded-full text-xs font-mono font-bold tracking-widest uppercase transition-all shadow-[3px_3px_0px_#1a1614] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] z-20 cursor-pointer"
         id="back-home-btn"
       >
         <ArrowLeft size={14} />
@@ -22,38 +22,46 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
       {/* Copy Column Details */}
       <div className="contact-copy">
         <div className="contact-col">
-          <h2 className="text-zinc-950">
-            Things in motion stay interesting.
+          <h2 className="font-display font-black text-5xl sm:text-6xl lg:text-7xl text-brand-dark uppercase tracking-tighter leading-none select-none">
+            THINGS IN <br />
+            <span 
+              className="text-transparent"
+              style={{ WebkitTextStroke: '2px var(--color-brand-dark)' }}
+            >
+              MOTION
+            </span> <br />
+            STAY <br />
+            INTERESTING.
           </h2>
         </div>
 
-        <div className="contact-col select-none">
-          <div className="contact-group">
-            <p className="sm">Focus</p>
-            <p className="font-sans font-bold text-zinc-800 text-lg uppercase tracking-tight">Full-Stack Web</p>
-            <p className="font-sans font-bold text-zinc-800 text-lg uppercase tracking-tight">Cinematic Video & Audio</p>
-            <p className="font-sans font-bold text-zinc-800 text-lg uppercase tracking-tight">UX Interaction & GSAP</p>
+        <div className="contact-col space-y-6">
+          <div className="bg-white border-2 border-brand-dark p-6 rounded-3xl shadow-[4px_4px_0px_#1a1614] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300 select-none">
+            <p className="sm !m-0 !mb-1 text-[9px] font-mono text-zinc-500 font-bold uppercase tracking-widest">Focus</p>
+            <p className="font-sans font-extrabold text-zinc-800 text-sm uppercase tracking-tight">Cinematic Video Assembly</p>
+            <p className="font-sans font-extrabold text-zinc-800 text-sm uppercase tracking-tight">Sound Design & Foley</p>
+            <p className="font-sans font-extrabold text-zinc-800 text-sm uppercase tracking-tight">Color Grading & Grading LUTS</p>
           </div>
 
-          <div className="contact-group">
-            <p className="sm">Base</p>
-            <p className="font-sans font-semibold text-zinc-700 text-base">KIIT University, Bhubaneswar</p>
+          <div className="bg-white border-2 border-brand-dark p-6 rounded-3xl shadow-[4px_4px_0px_#1a1614] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300 select-none">
+            <p className="sm !m-0 !mb-1 text-[9px] font-mono text-zinc-500 font-bold uppercase tracking-widest">Base</p>
+            <p className="font-sans font-extrabold text-zinc-800 text-sm uppercase tracking-tight">Bhubaneswar, Odisha, India</p>
           </div>
 
-          <div className="contact-mail pt-2">
+          <div className="contact-mail">
             <a 
               href="mailto:DEVJENA03@GMAIL.COM"
-              className="inline-flex items-center gap-2 bg-brand-dark text-white px-6 py-3.5 rounded-full text-xs font-mono font-bold tracking-widest uppercase transition-all hover:bg-brand-accent hover:scale-105"
+              className="inline-flex items-center justify-center gap-2.5 bg-brand-accent text-white border-2 border-brand-dark px-8 py-4 rounded-full text-xs font-mono font-bold tracking-widest uppercase transition-all shadow-[4px_4px_0px_#1a1614] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] w-full"
             >
-              <Mail size={13} />
+              <Mail size={14} />
               DEVJENA03@GMAIL.COM
             </a>
           </div>
 
-          <div className="contact-group">
-            <p className="sm">Credits</p>
-            <p className="font-sans text-zinc-500 text-xs">Created by Dev Jena</p>
-            <p className="font-sans text-zinc-500 text-xs">Edition 2026</p>
+          <div className="bg-white border-2 border-brand-dark p-6 rounded-3xl shadow-[4px_4px_0px_#1a1614] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300 select-none">
+            <p className="sm !m-0 !mb-1 text-[9px] font-mono text-zinc-500 font-bold uppercase tracking-widest">Credits</p>
+            <p className="font-sans font-extrabold text-zinc-800 text-[10px] uppercase tracking-tight">Created by Dev Jena</p>
+            <p className="font-sans font-extrabold text-zinc-800 text-[10px] uppercase tracking-tight">Edition 2026</p>
           </div>
         </div>
       </div>
