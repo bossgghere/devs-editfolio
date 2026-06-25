@@ -137,8 +137,8 @@ export default function Preloader() {
   const name = "DEV JENA";
 
   return (
-    <>
-      <div className="preloader" ref={preloaderRef}>
+    <div ref={preloaderRef}>
+      <div className="preloader">
         <div className="progress-bar"></div>
 
         <div className="preloader-images">
@@ -161,6 +161,7 @@ export default function Preloader() {
           ))}
         </h1>
       </div>
-    </>
+    </div>
   );
 }
+
