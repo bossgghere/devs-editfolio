@@ -13,9 +13,14 @@
   --color-brand-accent: #ff6e14;
 }
 
-/* Custom background pattern updated with a warm premium beige background from reference */
+/* Custom background pattern updated with a warm premium beige background and blueprint grid line pattern */
 .blueprint-bg {
   background-color: var(--color-brand-cream);
+  background-image: 
+    radial-gradient(circle at 80% 20%, rgba(255, 110, 20, 0.04), transparent 60%),
+    linear-gradient(rgba(26, 22, 20, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 22, 20, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
 }
 
 /* Scrollbar customizations */

@@ -53,19 +53,19 @@ export default function App() {
                 </p>
               </div>
 
-              {/* Quick Stats Grid */}
-              <div className="grid grid-cols-3 gap-4 text-center font-mono bg-white border border-zinc-200 p-4 rounded-2xl shadow-sm">
-                <div>
-                  <div className="text-2xl font-black text-brand-dark">2</div>
-                  <div className="text-[10px] text-zinc-500 uppercase tracking-wider font-semibold">YEARS OF PACE</div>
+              {/* Quick Stats Grid - Enhanced Neo-Brutalist Style */}
+              <div className="grid grid-cols-3 gap-1 bg-white border-2 border-brand-dark p-5 rounded-3xl shadow-[6px_6px_0px_#1a1614] hover:shadow-[3px_3px_0px_#1a1614] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-300">
+                <div className="group flex flex-col justify-center items-center py-1">
+                  <div className="text-4xl sm:text-5xl font-display font-black text-brand-dark group-hover:text-brand-accent transition-colors duration-300 leading-none">2</div>
+                  <div className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest font-bold mt-1.5 transition-colors duration-300 group-hover:text-brand-dark">YEARS OF PACE</div>
                 </div>
-                <div className="border-x border-zinc-100">
-                  <div className="text-2xl font-black text-brand-dark">100+</div>
-                  <div className="text-[10px] text-zinc-500 uppercase tracking-wider font-semibold">PROJECTS COMPLETED</div>
+                <div className="group flex flex-col justify-center items-center py-1 border-x border-brand-dark/10">
+                  <div className="text-4xl sm:text-5xl font-display font-black text-brand-dark group-hover:text-brand-accent transition-colors duration-300 leading-none">100+</div>
+                  <div className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest font-bold mt-1.5 transition-colors duration-300 group-hover:text-brand-dark">PROJECTS COMPLETED</div>
                 </div>
-                <div>
-                  <div className="text-2xl font-black text-brand-dark">1.5M</div>
-                  <div className="text-[10px] text-zinc-500 uppercase tracking-wider font-semibold">TOTAL VIEWS DELIVERED</div>
+                <div className="group flex flex-col justify-center items-center py-1">
+                  <div className="text-4xl sm:text-5xl font-display font-black text-brand-dark group-hover:text-brand-accent transition-colors duration-300 leading-none">1.5M</div>
+                  <div className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest font-bold mt-1.5 transition-colors duration-300 group-hover:text-brand-dark font-semibold">TOTAL VIEWS</div>
                 </div>
               </div>
             </div>
@@ -73,8 +73,10 @@ export default function App() {
             {/* Right Column: High-End Custom Hand-drawn effect & Portrait Collage */}
             <div className="lg:col-span-5 relative flex items-center justify-center">
               
-              {/* Sketch Background circles to represent hand-drawn elements */}
-              <div className="absolute inset-0 bg-radial from-brand-accent/5 to-transparent rounded-full filter blur-2xl -z-10" />
+              {/* Technical rotating vector targets behind portrait */}
+              <div className="absolute w-[112%] aspect-square rounded-full border border-dashed border-brand-accent/20 animate-[spin_80s_linear_infinite] -z-10 pointer-events-none" />
+              <div className="absolute w-[95%] aspect-square rounded-full border border-brand-dark/5 animate-[spin_120s_linear_infinite] -z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-radial from-brand-accent/5 to-transparent rounded-full filter blur-3xl -z-10" />
 
               {/* Portrait Card */}
               <div className="relative group w-full max-w-[380px] bg-white border-2 border-brand-dark p-4 rounded-3xl shadow-[8px_8px_0px_#0d0d0d] overflow-hidden transition-all duration-300 hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_#0d0d0d]">
