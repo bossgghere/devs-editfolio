@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Video } from 'lucide-react';
+import { Video, Scissors } from 'lucide-react';
 import ShowreelPlayer from './components/ShowreelPlayer';
 import VideoGrid from './components/VideoGrid';
 import Footer from './components/Footer';
@@ -18,36 +18,16 @@ export default function App() {
       <Preloader />
       <div className="min-h-screen blueprint-bg text-brand-dark font-sans selection:bg-brand-accent selection:text-white">
       
-      {/* Decorative Blueprint Header Line */}
-      <div className="border-b border-brand-dark/10 bg-white/40 backdrop-blur-md sticky top-0 z-40 px-6 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Video className="text-brand-accent" size={18} />
-            <span className="font-mono text-xs font-bold tracking-widest text-zinc-800">DEV JENA // EDITOR</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <a 
-              href="#portfolio-section" 
-              className="text-xs font-mono text-zinc-500 hover:text-brand-dark transition-all hidden sm:inline"
-            >
-              PORTFOLIO
-            </a>
-            <a 
-              href="#showreel-section" 
-              className="text-xs font-mono text-zinc-500 hover:text-brand-dark transition-all hidden sm:inline"
-            >
-              SHOW REEL
-            </a>
-            <button 
-              onClick={() => setCurrentPage('contact')}
-              className="bg-brand-dark hover:bg-brand-accent text-white px-4 py-2 rounded-full text-xs font-mono font-bold tracking-wider transition-all shadow-sm cursor-pointer"
-              id="header-book-btn"
-            >
-              BOOK PROJECT
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* Fixed Floating Menu Button */}
+      <button 
+        onClick={() => setCurrentPage('contact')}
+        className="fixed top-6 right-6 z-50 bg-brand-dark hover:bg-brand-accent text-white px-6 py-3 rounded-full text-xs font-mono font-bold tracking-widest uppercase transition-all shadow-[0_4px_20px_rgba(0,0,0,0.12)] hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2"
+        id="fixed-menu-btn"
+      >
+        <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
+        Menu
+      </button>
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 space-y-24">
 
