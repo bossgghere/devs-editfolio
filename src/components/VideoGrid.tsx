@@ -3,11 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { VIDEOS } from '../data';
 import { VideoItem } from '../types';
 import { Play, X, Sliders, Music, Hourglass, HelpCircle, Check, Search, Calendar, Star } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function VideoGrid() {
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
@@ -28,40 +24,7 @@ export default function VideoGrid() {
   const verticalRows = chunkArray(verticalVideos, 4);
   const horizontalRows = chunkArray(horizontalVideos, 2);
 
-  useGSAP(() => {
-    // Set initial values
-    gsap.set(".project-card", {
-      y: 1000,
-    });
 
-    const rows = gsap.utils.toArray('.project-row');
-    
-    rows.forEach((row: any) => {
-      const items = row.querySelectorAll('.project-card');
-      
-      items.forEach((item: any, idx: number) => {
-        const isLeft = idx < items.length / 2;
-        gsap.set(item, {
-          rotation: isLeft ? -60 : 60,
-          transformOrigin: "center center"
-        });
-      });
-
-      ScrollTrigger.create({
-        trigger: row,
-        start: "top 85%",
-        onEnter: () => {
-          gsap.to(items, {
-            y: 0,
-            rotation: 0,
-            duration: 0.8,
-            ease: "power4.out",
-            stagger: 0.08,
-          });
-        },
-      });
-    });
-  }, { scope: gridContainerRef });
 
   // Custom renderer for 9:16 Vertical Cards to exactly match the screenshot
   const renderVerticalCardVisual = (video: VideoItem) => {
