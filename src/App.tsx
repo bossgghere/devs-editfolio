@@ -8,6 +8,7 @@ import ContactForm from './components/ContactForm';
 import LeadInbox from './components/LeadInbox';
 import Footer from './components/Footer';
 import ContactPage from './components/ContactPage';
+import Preloader from './components/Preloader';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<'home' | 'contact'>('home');
@@ -39,7 +40,9 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen blueprint-bg text-brand-dark font-sans selection:bg-brand-accent selection:text-white">
+    <>
+      <Preloader />
+      <div className="min-h-screen blueprint-bg text-brand-dark font-sans selection:bg-brand-accent selection:text-white">
       
       {/* Decorative Blueprint Header Line */}
       <div className="border-b border-brand-dark/10 bg-white/40 backdrop-blur-md sticky top-0 z-40 px-6 py-4">
@@ -347,6 +350,7 @@ export default function App() {
       {/* FOOTER */}
       <Footer onContactClick={() => setCurrentPage('contact')} />
 
-    </div>
+      </div>
+    </>
   );
 }
