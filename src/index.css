@@ -34,3 +34,164 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* Premium Footer Section with Particle Explosions */
+.footer-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-brand-dark);
+  color: var(--color-brand-cream);
+  overflow: hidden;
+}
+
+.footer-section .explosion-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.footer-section img.explosion-particle-img {
+  position: absolute;
+  bottom: -200px;
+  left: 50%;
+  width: var(--particle-size, 300px) !important;
+  height: auto !important;
+  border-radius: 1rem;
+  object-fit: cover;
+  transform: translateX(-50%);
+  will-change: transform;
+  z-index: 1;
+}
+
+@media (max-width: 1000px) {
+  .footer-section {
+    height: 70vh;
+  }
+  .footer-section .explosion-container {
+    display: none;
+  }
+}
+
+/* Bouncing Screensaver Contact Page Styles */
+.contact-section-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-brand-cream);
+  color: var(--color-brand-dark);
+  overflow: hidden;
+}
+
+.contact-section-page .screensaver {
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.contact-section-page .contact-copy {
+  width: 80%;
+  max-width: 1400px;
+  display: flex;
+  padding: 0 2rem;
+  gap: 4rem;
+  position: relative;
+  z-index: 10;
+}
+
+.contact-section-page .contact-copy .contact-col:nth-child(1) {
+  flex: 3;
+}
+
+.contact-section-page .contact-copy .contact-col:nth-child(2) {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.contact-section-page .contact-copy .contact-col h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 5rem;
+  line-height: 0.95;
+  letter-spacing: -0.15rem;
+  text-transform: uppercase;
+}
+
+.contact-section-page .contact-copy p.sm {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  color: var(--color-brand-gray);
+}
+
+.contact-section-page .contact-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.contact-section-page .contact-footer .container-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contact-section-page .contact-footer .contact-socials {
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 1000px) {
+  .contact-section-page {
+    height: auto;
+    min-height: 120vh;
+    padding: 6rem 0;
+    align-items: flex-start;
+  }
+
+  .contact-section-page .contact-copy {
+    flex-direction: column;
+    width: 100%;
+    gap: 3rem;
+    padding: 1.5rem;
+  }
+
+  .contact-section-page .contact-copy .contact-col h2 {
+    font-size: 3rem;
+    letter-spacing: -0.05rem;
+  }
+
+  .contact-section-page .contact-footer .container-footer {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .contact-section-page .contact-footer .contact-socials {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

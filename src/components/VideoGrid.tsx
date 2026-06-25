@@ -29,45 +29,34 @@ export default function VideoGrid() {
   const horizontalRows = chunkArray(horizontalVideos, 2);
 
   useGSAP(() => {
+    // Set initial values
+    gsap.set(".project-card", {
+      y: 1000,
+    });
+
     const rows = gsap.utils.toArray('.project-row');
     
     rows.forEach((row: any) => {
       const items = row.querySelectorAll('.project-card');
       
       items.forEach((item: any, idx: number) => {
-        let rot = 0;
-        if (items.length === 2) {
-          rot = idx === 0 ? -12 : 12;
-        } else if (items.length === 3) {
-          rot = idx === 0 ? -12 : idx === 1 ? 0 : 12;
-        } else if (items.length === 4) {
-          if (idx === 0) rot = -15;
-          if (idx === 1) rot = -5;
-          if (idx === 2) rot = 5;
-          if (idx === 3) rot = 15;
-        } else {
-          rot = idx % 2 === 0 ? -10 : 10;
-        }
-
+        const isLeft = idx < items.length / 2;
         gsap.set(item, {
-          y: 200,
-          opacity: 0,
-          rotation: rot,
+          rotation: isLeft ? -60 : 60,
           transformOrigin: "center center"
         });
       });
 
       ScrollTrigger.create({
         trigger: row,
-        start: "top 85%",
+        start: "top 70%",
         onEnter: () => {
           gsap.to(items, {
             y: 0,
             rotation: 0,
-            opacity: 1,
-            duration: 1.0,
-            ease: "power3.out",
-            stagger: 0.15,
+            duration: 1,
+            ease: "power4.out",
+            stagger: 0.25,
           });
         },
       });

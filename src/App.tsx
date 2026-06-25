@@ -6,8 +6,11 @@ import VideoGrid from './components/VideoGrid';
 
 import ContactForm from './components/ContactForm';
 import LeadInbox from './components/LeadInbox';
+import Footer from './components/Footer';
+import ContactPage from './components/ContactPage';
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState<'home' | 'contact'>('home');
   const [showAdminInbox, setShowAdminInbox] = useState(false);
   const [inboxCount, setInboxCount] = useState(2);
 
@@ -30,6 +33,10 @@ export default function App() {
     const interval = setInterval(updateInboxCount, 2000);
     return () => clearInterval(interval);
   }, []);
+
+  if (currentPage === 'contact') {
+    return <ContactPage onBackToHome={() => setCurrentPage('home')} />;
+  }
 
   return (
     <div className="min-h-screen blueprint-bg text-brand-dark font-sans selection:bg-brand-accent selection:text-white">
@@ -54,13 +61,13 @@ export default function App() {
             >
               SHOW REEL
             </a>
-            <a 
-              href="#contact-section" 
-              className="bg-brand-dark hover:bg-brand-accent text-white px-4 py-2 rounded-full text-xs font-mono font-bold tracking-wider transition-all shadow-sm"
+            <button 
+              onClick={() => setCurrentPage('contact')}
+              className="bg-brand-dark hover:bg-brand-accent text-white px-4 py-2 rounded-full text-xs font-mono font-bold tracking-wider transition-all shadow-sm cursor-pointer"
               id="header-book-btn"
             >
               BOOK PROJECT
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -338,13 +345,7 @@ export default function App() {
       </div>
 
       {/* FOOTER */}
-      <footer className="border-t border-zinc-200 bg-white py-12 mt-24 text-center space-y-4">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono text-zinc-400">
-          <div>
-            © {new Date().getFullYear()} DEV JENA. ALL RIGHTS RESERVED.
-          </div>
-        </div>
-      </footer>
+      <Footer onContactClick={() => setCurrentPage('contact')} />
 
     </div>
   );
