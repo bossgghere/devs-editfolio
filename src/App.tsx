@@ -30,14 +30,110 @@ export default function App() {
 
 
       {/* Full Screen Hero Section Wrapper */}
-      <div className="min-h-screen flex items-center justify-center py-16 relative">
-        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6">
+      <div className="min-h-screen flex items-center justify-center py-16 relative overflow-hidden">
+        
+        {/* Technical dot-matrix background texture */}
+        <div className="absolute inset-0 opacity-[0.035] pointer-events-none bg-[radial-gradient(var(--color-brand-dark)_1.5px,transparent_1.5px)] [background-size:24px_24px]" />
+        
+        {/* Large ambient orange-beige glow center spot */}
+        <div className="absolute w-[600px] h-[600px] rounded-full bg-brand-accent/5 blur-[120px] pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+
+
+
+        {/* Floating Minimal Widget 3: Compact Timeline */}
+        <div className="absolute left-[2%] bottom-[22%] hidden xl:block bg-white border-2 border-brand-dark p-3 rounded-2xl shadow-[3px_3px_0px_#1a1614] -rotate-3 hover:rotate-0 transition-transform duration-300 w-36 pointer-events-none select-none z-10">
+          <div className="flex items-center gap-1 mb-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <span className="text-[6px] font-mono font-black text-zinc-400 uppercase tracking-widest">V1</span>
+          </div>
+          <div className="h-3.5 bg-brand-cream/35 border border-brand-dark/15 rounded-md flex items-center px-1">
+            <div className="w-2/3 h-2 bg-brand-accent/20 border border-brand-accent/35 rounded-xs" />
+          </div>
+        </div>
+
+        {/* Floating Minimal Widget 4: Color LUT Circle */}
+        <div className="absolute right-[5%] top-[15%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2.5 rounded-2xl shadow-[3px_3px_0px_#1a1614] rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <div className="w-6.5 h-6.5 rounded-full bg-gradient-to-tr from-rose-500 via-emerald-400 to-sky-400 border border-brand-dark/30 animate-[spin_10s_linear_infinite]" />
+          <span className="text-[6px] font-mono font-black text-zinc-400 uppercase tracking-widest mt-0.5">LUT</span>
+        </div>
+
+
+
+        {/* Floating Minimal Widget 6: RGB parade graph */}
+        <div className="absolute right-[2%] bottom-[22%] hidden xl:block bg-white border-2 border-brand-dark p-3 rounded-2xl shadow-[3px_3px_0px_#1a1614] rotate-3 hover:rotate-0 transition-transform duration-300 w-32 pointer-events-none select-none z-10">
+          <div className="h-8 bg-zinc-950 rounded-lg flex items-end justify-between p-1 border border-brand-dark/10">
+            <div className="w-[28%] h-full flex items-end gap-[0.5px] opacity-80">
+              <span className="w-[30%] h-[30%] bg-rose-500" />
+              <span className="w-[30%] h-[65%] bg-rose-500" />
+            </div>
+            <div className="w-[28%] h-full flex items-end gap-[0.5px] opacity-80">
+              <span className="w-[30%] h-[40%] bg-emerald-500" />
+              <span className="w-[30%] h-[70%] bg-emerald-500" />
+            </div>
+            <div className="w-[28%] h-full flex items-end gap-[0.5px] opacity-80">
+              <span className="w-[30%] h-[20%] bg-sky-500" />
+              <span className="w-[30%] h-[60%] bg-sky-500" />
+            </div>
+          </div>
+        </div>
+
+        {/* Floating Minimal Widget 7: Keyframe Diamond Tracker */}
+        <div className="absolute left-[7%] top-[60%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2 rounded-xl shadow-[3px_3px_0px_#1a1614] -rotate-3 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <div className="flex items-center gap-1.5 h-3">
+            <span className="w-1.5 h-1.5 bg-brand-accent rotate-45 border border-brand-dark/20" />
+            <span className="w-6 h-[2px] bg-brand-dark/15" />
+            <span className="w-1.5 h-1.5 bg-brand-accent rotate-45 border border-brand-dark/20" />
+          </div>
+          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest mt-0.5">Key</span>
+        </div>
+
+        {/* Floating Minimal Widget 8: Audio Pan Indicator */}
+        <div className="absolute right-[7%] top-[30%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2 rounded-xl shadow-[3px_3px_0px_#1a1614] rotate-3 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <div className="w-8 h-1.5 bg-brand-cream/80 border border-brand-dark/15 rounded-full relative flex items-center justify-center">
+            <span className="absolute w-2.5 h-2.5 rounded-full bg-brand-accent border border-brand-dark" />
+          </div>
+          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest mt-0.5">Pan</span>
+        </div>
+
+        {/* Floating Minimal Widget 9: Timeline Flag Marker */}
+        <div className="absolute right-[5%] bottom-[35%] hidden xl:flex flex-col items-center gap-1 bg-white border-2 border-brand-dark p-2.5 rounded-xl shadow-[3px_3px_0px_#1a1614] -rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-brand-accent">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+            <line x1="4" y1="22" x2="4" y2="15" />
+          </svg>
+          <span className="text-[5px] font-mono font-black text-zinc-400 uppercase tracking-widest mt-0.5">Mark</span>
+        </div>
+
+        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 relative z-10">
           {/* HERO SECTION */}
           <section className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Column: Big Bold Name and Bio Paragraph */}
             <div className="lg:col-span-7 space-y-8 z-10">
-              <div className="space-y-4">
+              <div className="space-y-4 relative">
+                
+                {/* Floating decal beside name: Cut tool */}
+                <div className="absolute top-[5%] left-[170px] sm:left-[210px] md:left-[230px] lg:left-[210px] xl:left-[230px] flex flex-col items-center gap-0.5 bg-white border-2 border-brand-dark px-2 py-1 rounded-xl shadow-[1.5px_1.5px_0px_#1a1614] -rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+                  <Scissors size={10} className="text-brand-dark" />
+                  <span className="text-[4px] font-mono font-black text-zinc-400 uppercase tracking-widest">Cut</span>
+                </div>
+
+                {/* Floating decal beside name: Volume VU */}
+                <div className="absolute top-[46%] left-[240px] sm:left-[350px] md:left-[390px] lg:left-[360px] xl:left-[390px] hidden sm:flex flex-col items-center gap-0.5 bg-white border-2 border-brand-dark px-1.5 py-1 rounded-xl shadow-[1.5px_1.5px_0px_#1a1614] rotate-6 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10 animate-pulse">
+                  <div className="flex gap-[0.5px] w-1.5 mb-[1px]">
+                    <span className="w-1.5 h-0.5 bg-rose-500 rounded-xs" />
+                    <span className="w-1.5 h-0.5 bg-amber-400 rounded-xs" />
+                    <span className="w-1.5 h-0.5 bg-emerald-500 rounded-xs" />
+                  </div>
+                  <span className="text-[4px] font-mono font-black text-zinc-500 uppercase tracking-wider">VU</span>
+                </div>
+
+                {/* Floating decal beside name: Pace 2.0x */}
+                <div className="absolute bottom-[-5px] left-[150px] sm:left-[230px] md:left-[260px] lg:left-[240px] xl:left-[260px] flex flex-col items-center bg-white border-2 border-brand-dark px-1.5 py-0.5 rounded-lg shadow-[1.5px_1.5px_0px_#1a1614] -rotate-3 hover:rotate-0 transition-transform duration-300 pointer-events-none select-none z-10">
+                  <span className="text-[4px] font-mono font-black text-zinc-400 uppercase tracking-widest">Pace</span>
+                  <span className="text-[9px] font-mono font-black text-brand-accent">2.0X</span>
+                </div>
+
                 <h1 className="font-display font-black text-[5.5rem] sm:text-[7.5rem] lg:text-[8.5rem] leading-[0.8] text-brand-dark uppercase tracking-tighter select-none">
                   <span className="block relative hover:text-brand-accent transition-colors duration-300">
                     DEV
