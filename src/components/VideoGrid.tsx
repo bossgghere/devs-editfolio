@@ -819,7 +819,7 @@ export default function VideoGrid() {
       <AnimatePresence>
         {selectedVideo && (
           <div 
-            className="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 z-50 overflow-y-auto"
+            className="fixed inset-0 bg-brand-dark/60 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 z-50 overflow-y-auto"
             onClick={() => setSelectedVideo(null)}
             id="lightbox-backdrop"
           >
@@ -829,27 +829,27 @@ export default function VideoGrid() {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ type: 'spring', damping: 25 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-zinc-950 text-white rounded-2xl border border-zinc-800 overflow-hidden w-full max-w-5xl shadow-2xl relative flex flex-col lg:flex-row"
+              className={`bg-white text-brand-dark rounded-3xl border-4 border-brand-dark shadow-[10px_10px_0px_#1a1614] overflow-hidden w-full relative flex flex-col p-4 gap-4 ${
+                selectedVideo.aspectRatio === '9:16' ? 'max-w-[380px]' : 'max-w-3xl'
+              }`}
               id="lightbox-container"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedVideo(null)}
-                className="absolute top-4 right-4 p-2 bg-zinc-900/80 hover:bg-zinc-800 text-white rounded-full z-50 border border-white/10 hover:scale-110 transition-all cursor-pointer"
+                className="absolute top-3 right-3 p-2 bg-white hover:bg-brand-accent hover:text-white text-brand-dark rounded-full z-50 border-2 border-brand-dark shadow-[2px_2px_0px_#1a1614] hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 id="lightbox-close-btn"
               >
-                <X size={18} />
+                <X size={14} />
               </button>
 
-              {/* Left Side: Video Player Stage */}
-              <div className={`w-full lg:w-[55%] bg-black flex items-center justify-center relative border-b lg:border-b-0 lg:border-r border-zinc-800 ${
-                selectedVideo.aspectRatio === '9:16' ? 'py-6 px-4 aspect-[4/5] lg:aspect-auto min-h-[450px]' : 'aspect-video lg:aspect-auto'
-              }`}>
+              {/* Video Player Stage */}
+              <div className={`w-full bg-brand-cream/35 border-2 border-brand-dark rounded-2xl overflow-hidden flex items-center justify-center relative ${
+                selectedVideo.aspectRatio === '9:16' ? 'aspect-[9/16] max-h-[70vh]' : 'aspect-video'
+              }`} id="lightbox-video-stage">
                 <video
                   src={selectedVideo.videoUrl}
-                  className={`w-full max-h-[80vh] object-contain rounded-lg ${
-                    selectedVideo.aspectRatio === '9:16' ? 'max-w-[320px] shadow-2xl border border-zinc-800' : ''
-                  }`}
+                  className="w-full h-full object-contain"
                   controls
                   autoPlay
                   loop
@@ -858,92 +858,29 @@ export default function VideoGrid() {
                 />
               </div>
 
-              {/* Right Side: Detailed Metadata Panel */}
-              <div className="w-full lg:w-[45%] p-6 sm:p-8 flex flex-col justify-between space-y-6">
+              {/* Minimal Info Panel */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-[10px] bg-brand-accent text-white font-mono tracking-widest font-bold px-2.5 py-0.5 rounded-full uppercase">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="text-[9px] bg-brand-accent text-white font-mono tracking-widest font-black px-2 py-0.5 rounded uppercase">
                       {selectedVideo.tag}
                     </span>
-                    <span className="text-xs font-mono text-zinc-400 uppercase">
-                      {selectedVideo.category === 'vertical' ? '9:16 vertical' : '16:9 horizontal'}
+                    <span className="text-[10px] font-mono text-zinc-500 uppercase">
+                      {selectedVideo.aspectRatio === '9:16' ? '9:16 vertical' : '16:9 widescreen'}
                     </span>
                   </div>
-
-                  <h3 className="text-2xl sm:text-3xl font-display font-black tracking-tight uppercase leading-none mb-2 text-white">
+                  <h3 className="text-xl font-display font-black tracking-tight uppercase leading-none text-brand-dark">
                     {selectedVideo.title}
                   </h3>
-                  
-                  {selectedVideo.subtitle && (
-                    <p className="text-sm font-mono text-brand-accent font-semibold mb-4">
-                      {selectedVideo.subtitle}
-                    </p>
-                  )}
-
-                  <hr className="border-zinc-800 my-4" />
-
-                  <p className="text-sm text-zinc-350 leading-relaxed font-sans">
-                    {selectedVideo.description}
-                  </p>
-
-                  <div className="mt-6 space-y-4">
-                    {/* Skills section */}
-                    <div>
-                      <h4 className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-2 flex items-center gap-1">
-                        <Sliders size={12} className="text-brand-accent" />
-                        Techniques Applied
-                      </h4>
-                      <div className="flex flex-wrap gap-1.5">
-                        {selectedVideo.skillsUsed.map((skill, i) => (
-                          <span 
-                            key={i} 
-                            className="bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono px-2.5 py-1 rounded"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Specifications block */}
-                    <div>
-                      <h4 className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-2 flex items-center gap-1">
-                        <Hourglass size={12} className="text-brand-accent" />
-                        Production Details
-                      </h4>
-                      <div className="grid grid-cols-2 gap-3 text-xs font-mono bg-zinc-900/60 p-3 rounded-lg border border-zinc-800">
-                        <div>
-                          <span className="text-zinc-500">FORMAT:</span>{' '}
-                          <span className="text-zinc-300">{selectedVideo.aspectRatio === '9:16' ? '9:16 VERTICAL' : '16:9 WIDESCREEN'}</span>
-                        </div>
-                        <div>
-                          <span className="text-zinc-500">RESOLUTION:</span>{' '}
-                          <span className="text-zinc-300">1080p FHD</span>
-                        </div>
-                        <div>
-                          <span className="text-zinc-500">COLOR SPACE:</span>{' '}
-                          <span className="text-zinc-300">REC.709 SLOG3</span>
-                        </div>
-                        <div>
-                          <span className="text-zinc-500">TARGET:</span>{' '}
-                          <span className="text-zinc-300">REELS/CINEMATIC</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
-                <div className="pt-4 border-t border-zinc-800 flex items-center justify-between">
-                  <div className="text-xs text-zinc-500 font-mono flex items-center gap-1">
-                    <Star size={11} className="text-yellow-500" fill="currentColor" />
-                    CLIENT FEEDBACK: 5/5
-                  </div>
+                <div className="flex items-center">
                   <button
                     onClick={() => setIsLightboxMuted(!isLightboxMuted)}
-                    className="text-xs font-mono text-zinc-400 hover:text-white flex items-center gap-1.5 transition-all cursor-pointer"
+                    className="text-[9px] font-mono font-bold text-brand-dark bg-brand-cream/60 hover:bg-brand-cream border-2 border-brand-dark px-3 py-1.5 rounded-xl transition-all active:scale-95 cursor-pointer flex items-center gap-1.5"
                   >
-                    <Music size={13} className="text-brand-accent" />
-                    {isLightboxMuted ? 'Unmute' : 'Mute Sound'}
+                    <Music size={12} className="text-brand-accent" />
+                    {isLightboxMuted ? 'UNMUTE' : 'MUTE SOUND'}
                   </button>
                 </div>
               </div>
