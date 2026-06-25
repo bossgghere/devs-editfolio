@@ -197,7 +197,7 @@ export default function App() {
                 {/* Styled portrait image from Unsplash with curly hair & friendly smile (matching screenshot guy) */}
                 <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 relative border border-zinc-200">
                   <img
-                    src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=800&q=80"
+                    src="/images/hero-1.png"
                     alt="Dev Jena Portrait"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
@@ -222,7 +222,7 @@ export default function App() {
               <div className="absolute -bottom-6 -left-6 hidden sm:block w-[140px] bg-white border border-brand-dark p-2 rounded-2xl shadow-lg rotate-[-6deg] hover:rotate-0 transition-transform">
                 <div className="aspect-[4/5] rounded-xl overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
+                    src="/images/hero-2.png"
                     alt="Dev Jena edit suite"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover grayscale"
