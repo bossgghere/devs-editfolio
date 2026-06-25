@@ -49,15 +49,15 @@ export default function Footer({ onContactClick }: FooterProps) {
 
         {/* Footer Metadata row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-brand-gray/30 text-xs font-mono text-brand-gray">
-          <div className="text-left">
+          <div className="text-left md:text-left">
             BHUBANESWAR, OD <span className="text-brand-cream ml-1.5">{localTime}</span>
           </div>
 
-          <div className="text-center">
+          <div className="text-left md:text-center">
             DEVELOPED BY DEV JENA
           </div>
 
-          <div className="text-right">
+          <div className="text-left md:text-right">
             &copy; {new Date().getFullYear()} DEV JENA
           </div>
         </div>

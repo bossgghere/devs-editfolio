@@ -11,7 +11,7 @@ export default function VideoGrid() {
   const gridContainerRef = useRef<HTMLDivElement>(null);
 
   const verticalVideos = VIDEOS.filter((v) => v.category === 'vertical');
-  const horizontalVideos = VIDEOS.filter((v) => v.category === 'horizontal');
+  const horizontalVideos = VIDEOS.filter((v) => v.category === 'horizontal').slice(0, 5);
 
   const chunkArray = <T,>(arr: T[], size: number): T[][] => {
     const chunks: T[][] = [];
@@ -22,7 +22,6 @@ export default function VideoGrid() {
   };
 
   const verticalRows = chunkArray(verticalVideos, 4);
-  const horizontalRows = chunkArray(horizontalVideos, 2);
 
 
 
@@ -599,20 +598,33 @@ export default function VideoGrid() {
         </div>
 
         <div className="space-y-12">
-          {horizontalRows.map((rowItems, rowIndex) => (
-            <div key={rowIndex} className="project-row flex flex-col md:flex-row gap-8 justify-center">
-              {rowItems.map((video) => (
-                <div
-                  key={video.id}
-                  onClick={() => setSelectedVideo(video)}
-                  className="project-card flex-1 group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-video w-full max-w-[500px] mx-auto md:mx-0"
-                  id={`portfolio-card-${video.id}`}
-                >
-                  {renderHorizontalCardVisual(video)}
-                </div>
-              ))}
-            </div>
-          ))}
+          {/* Row 1: 3 cards */}
+          <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
+            {horizontalVideos.slice(0, 3).map((video) => (
+              <div
+                key={video.id}
+                onClick={() => setSelectedVideo(video)}
+                className="project-card w-full max-w-[500px] md:max-w-none md:w-[calc(33.333%-22px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-video"
+                id={`portfolio-card-${video.id}`}
+              >
+                {renderHorizontalCardVisual(video)}
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2: 2 cards */}
+          <div className="project-row flex flex-col md:flex-row gap-8 justify-center items-center">
+            {horizontalVideos.slice(3, 5).map((video) => (
+              <div
+                key={video.id}
+                onClick={() => setSelectedVideo(video)}
+                className="project-card w-full max-w-[500px] md:w-[calc(33.333%-22px)] group cursor-pointer bg-white rounded-3xl overflow-hidden border-2 border-brand-dark hover:shadow-[8px_8px_0px_#1a1614] transition-all duration-300 relative aspect-video"
+                id={`portfolio-card-${video.id}`}
+              >
+                {renderHorizontalCardVisual(video)}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
