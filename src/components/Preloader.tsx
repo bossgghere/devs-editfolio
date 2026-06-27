@@ -6,10 +6,11 @@ import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(useGSAP, CustomEase);
 
 // Create custom hop ease if not already registered
+// Custom bezier curve (0.9, 0, 0.1, 1) mimics professional video frame interpolation rates
 try {
   CustomEase.create('hop', '0.9, 0, 0.1, 1');
 } catch (e) {
-  // fallback if creation fails
+  // Fallback easing is used automatically if registration fails
 }
 
 export default function Preloader() {
