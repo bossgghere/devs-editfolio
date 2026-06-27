@@ -829,6 +829,9 @@ export default function VideoGrid() {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ type: 'spring', damping: 25 }}
               onClick={(e) => e.stopPropagation()}
+              // Responsive max-width scales:
+              // - 9:16 vertical clips map to a narrow phone-like layout (max-w-[380px])
+              // - 16:9 widescreen clips map to a landscape video stage (max-w-3xl)
               className={`bg-white text-brand-dark rounded-3xl border-4 border-brand-dark shadow-[10px_10px_0px_#1a1614] overflow-hidden w-full relative flex flex-col p-4 gap-4 ${
                 selectedVideo.aspectRatio === '9:16' ? 'max-w-[380px]' : 'max-w-3xl'
               }`}
