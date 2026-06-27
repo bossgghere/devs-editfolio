@@ -19,3 +19,10 @@ The project utilizes a custom **Neo-Brutalist** aesthetic combined with dynamic 
 2. **Video Grid (`src/components/VideoGrid.tsx`)**:
    - Manages widescreen horizontal clips and tall portrait mobile reels.
    - Features a custom unified aspect-ratio-aware video modal player tailored to both landscape and vertical clips.
+
+## Static Assets
+
+All key visual assets used for the preloader and hero portrait sections are hosted locally inside the `public/` directory:
+- `/preloader-*.jpg`: High-context slides loaded sequentially during the initial entry preloader screen.
+- `/images/hero-1.png`: Main profile branding portrait image.
+- `/images/hero-2.jpg`: Minimalist close-up camera gear image for the secondary overlay slot.
