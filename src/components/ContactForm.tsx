@@ -12,7 +12,7 @@ const BUDGET_RANGES = [
   '$500 - $1.5K',
   '$1.5K - $3K',
   '$3K+'
-];
+] as const;
 
 const PROJECT_TYPES = [
   'Shorts Bundle',
@@ -20,7 +20,7 @@ const PROJECT_TYPES = [
   'Podcast Cut',
   'YouTube Edit',
   'Custom Motion'
-];
+] as const;
 
 export default function ContactForm({ onMessageSent }: ContactFormProps) {
   const [name, setName] = useState('');
