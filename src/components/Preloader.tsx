@@ -22,7 +22,7 @@ export default function Preloader() {
     '/preloader-2.jpg',
     '/preloader-3.jpg',
     '/preloader-4.jpg',
-  ];
+  ] as const;
 
   useGSAP(
     () => {
