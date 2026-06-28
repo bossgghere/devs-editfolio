@@ -7,7 +7,7 @@ const CHAPTERS = [
   { time: 8, label: "0:08 - Sound Design Build" },
   { time: 16, label: "0:16 - Advanced Speed Ramp" },
   { time: 24, label: "0:24 - Cinematic Color Grade" },
-];
+] as const;
 
 export default function ShowreelPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
