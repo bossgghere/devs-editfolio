@@ -6,8 +6,10 @@ import Footer from './components/Footer';
 import ContactPage from './components/ContactPage';
 import Preloader from './components/Preloader';
 
+type NavigationPage = 'home' | 'contact';
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'contact'>('home');
+  const [currentPage, setCurrentPage] = useState<NavigationPage>('home');
 
   if (currentPage === 'contact') {
     return <ContactPage onBackToHome={() => setCurrentPage('home')} />;
