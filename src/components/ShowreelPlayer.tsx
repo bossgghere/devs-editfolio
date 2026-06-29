@@ -9,6 +9,8 @@ const CHAPTERS = [
   { time: 24, label: "0:24 - Cinematic Color Grade" },
 ] as const;
 
+type ShowreelTab = 'timeline' | 'grading' | 'audio';
+
 export default function ShowreelPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -18,7 +20,7 @@ export default function ShowreelPlayer() {
   const [isColorGraded, setIsColorGraded] = useState(true);
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
   const [activeChapter, setActiveChapter] = useState(0);
-  const [activeTab, setActiveTab] = useState<'timeline' | 'grading' | 'audio'>('timeline');
+  const [activeTab, setActiveTab] = useState<ShowreelTab>('timeline');
 
   // Interactive slider value (0 to 100) for splitting RAW and GRADED footage side-by-side
   const [gradingSplit, setGradingSplit] = useState(50);
