@@ -1,13 +1,16 @@
+export type VideoCategory = 'vertical' | 'horizontal';
+export type VideoAspectRatio = '9:16' | '16:9';
+
 export interface VideoItem {
   id: string;
   title: string;
-  category: 'vertical' | 'horizontal';
+  category: VideoCategory;
   tag: string;
   thumbnail: string;
   videoUrl: string; // fallback or actual high quality stock video
   description: string;
   skillsUsed: string[];
-  aspectRatio: '9:16' | '16:9';
+  aspectRatio: VideoAspectRatio;
   subtitle?: string;
   caption?: string;
 }
