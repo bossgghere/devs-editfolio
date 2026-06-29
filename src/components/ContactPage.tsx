@@ -6,6 +6,12 @@ interface ContactPageProps {
   onBackToHome: () => void;
 }
 
+const FOCUS_SERVICES = [
+  'Cinematic Video Assembly',
+  'Sound Design & Foley',
+  'Color Grading & Grading LUTS',
+] as const;
+
 export default function ContactPage({ onBackToHome }: ContactPageProps) {
   return (
     <section className="contact-section-page min-h-screen flex flex-col justify-between blueprint-bg select-none p-6 sm:p-8 md:p-12">
@@ -60,9 +66,9 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
               Focus
             </p>
             <div className="space-y-1.5 text-brand-dark font-sans font-black uppercase text-xs sm:text-sm tracking-tight">
-              <p>Cinematic Video Assembly</p>
-              <p>Sound Design & Foley</p>
-              <p>Color Grading & Grading LUTS</p>
+              {FOCUS_SERVICES.map((service, index) => (
+                <p key={index}>{service}</p>
+              ))}
             </div>
           </motion.div>
 
