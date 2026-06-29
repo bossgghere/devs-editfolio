@@ -5,20 +5,20 @@ interface FooterProps {
   onContactClick: () => void;
 }
 
+const LOCAL_TIME_OPTIONS: Intl.DateTimeFormatOptions = {
+  timeZone: 'Asia/Kolkata',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hour12: false,
+};
+
 export default function Footer({ onContactClick }: FooterProps) {
   const [localTime, setLocalTime] = useState('');
 
   useEffect(() => {
     const updateLocalTime = () => {
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: 'Asia/Kolkata',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-      };
-
-      const formatter = new Intl.DateTimeFormat('en-US', options);
+      const formatter = new Intl.DateTimeFormat('en-US', LOCAL_TIME_OPTIONS);
       setLocalTime(formatter.format(new Date()));
     };
 
