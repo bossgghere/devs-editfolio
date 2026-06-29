@@ -143,8 +143,8 @@ export default function Preloader() {
         <div className="progress-bar"></div>
 
         <div className="preloader-images">
-          {imagePaths.map((path, idx) => (
-            <div className="img" key={idx}>
+          {imagePaths.map((path, index) => (
+            <div className="img" key={index}>
               <img src={path} alt="" />
             </div>
           ))}
