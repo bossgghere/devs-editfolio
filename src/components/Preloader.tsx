@@ -13,6 +13,8 @@ try {
   // Fallback easing is used automatically if registration fails
 }
 
+const PRELOADER_NAME = "DEV JENA";
+
 export default function Preloader() {
   const preloaderRef = useRef<HTMLDivElement>(null);
   const [showPreloader, setShowPreloader] = useState(true);
@@ -135,7 +137,7 @@ export default function Preloader() {
     return null;
   }
 
-  const name = "DEV JENA";
+  const name = PRELOADER_NAME;
 
   return (
     <div ref={preloaderRef}>
