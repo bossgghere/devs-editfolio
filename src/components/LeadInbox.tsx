@@ -6,6 +6,8 @@ interface LeadInboxProps {
   onClose?: () => void;
 }
 
+const LEADS_STORAGE_KEY = 'devjena_portfolio_leads';
+
 const SAMPLE_LEADS: ContactMessage[] = [
   {
     id: 'lead-1',
@@ -30,7 +32,7 @@ export default function LeadInbox({ onClose }: LeadInboxProps) {
 
   // Load submissions from localStorage on mount
   useEffect(() => {
-    const stored = localStorage.getItem('devjena_portfolio_leads');
+    const stored = localStorage.getItem(LEADS_STORAGE_KEY);
     if (stored) {
       try {
         setMessages(JSON.parse(stored));
@@ -39,7 +41,7 @@ export default function LeadInbox({ onClose }: LeadInboxProps) {
       }
     } else {
       // Seed with some sample inquiries so the inbox is never empty on first load!
-      localStorage.setItem('devjena_portfolio_leads', JSON.stringify(SAMPLE_LEADS));
+      localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(SAMPLE_LEADS));
       setMessages(SAMPLE_LEADS);
     }
   }, []);
@@ -47,11 +49,11 @@ export default function LeadInbox({ onClose }: LeadInboxProps) {
   const handleDelete = (id: string) => {
     const updated = messages.filter(m => m.id !== id);
     setMessages(updated);
-    localStorage.setItem('devjena_portfolio_leads', JSON.stringify(updated));
+    localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(updated));
   };
 
   const handleResetSeeds = () => {
-    localStorage.setItem('devjena_portfolio_leads', JSON.stringify(SAMPLE_LEADS));
+    localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(SAMPLE_LEADS));
     setMessages(SAMPLE_LEADS);
   };
 
