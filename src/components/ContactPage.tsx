@@ -12,6 +12,8 @@ const FOCUS_SERVICES = [
   'Color Grading & Grading LUTS',
 ] as const;
 
+const LOCATION_BASE = 'Bhubaneswar, Odisha, India';
+
 export default function ContactPage({ onBackToHome }: ContactPageProps) {
   return (
     <section className="contact-section-page min-h-screen flex flex-col justify-between blueprint-bg select-none p-6 sm:p-8 md:p-12">
@@ -83,7 +85,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
               Base
             </p>
             <p className="font-sans font-black text-brand-dark text-xs sm:text-sm uppercase tracking-tight">
-              Bhubaneswar, Odisha, India
+              {LOCATION_BASE}
             </p>
           </motion.div>
 
