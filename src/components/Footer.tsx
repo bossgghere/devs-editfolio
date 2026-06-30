@@ -13,6 +13,10 @@ const LOCAL_TIME_OPTIONS: Intl.DateTimeFormatOptions = {
   hour12: false,
 };
 
+const DEVELOPER_NAME = 'Gourav Raut';
+const DEVELOPER_WEBSITE = 'https://www.gourav.fun/';
+const DEVELOPER_INSTAGRAM = 'https://www.instagram.com/gourav_raut_/';
+
 export default function Footer({ onContactClick }: FooterProps) {
   const [localTime, setLocalTime] = useState('');
 
@@ -58,16 +62,16 @@ export default function Footer({ onContactClick }: FooterProps) {
           <div className="text-left md:text-center uppercase font-bold tracking-wider flex items-center justify-start md:justify-center gap-1.5 flex-wrap">
             <span>Developed by</span>
             <a 
-              href="https://www.gourav.fun/" 
+              href={DEVELOPER_WEBSITE} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-brand-cream hover:text-brand-accent transition-colors underline"
             >
-              Gourav Raut
+              {DEVELOPER_NAME}
             </a>
             <span className="text-brand-gray/30">/</span>
             <a 
-              href="https://www.instagram.com/gourav_raut_/" 
+              href={DEVELOPER_INSTAGRAM} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-brand-gray hover:text-brand-accent transition-colors lowercase font-normal"
