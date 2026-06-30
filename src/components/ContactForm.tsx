@@ -22,6 +22,20 @@ const PROJECT_TYPES = [
   'Custom Motion'
 ] as const;
 
+const saveLeadToLocalStorage = (newMessage: ContactMessage) => {
+  const existing = localStorage.getItem('devjena_portfolio_leads');
+  let leads: ContactMessage[] = [];
+  if (existing) {
+    try {
+      leads = JSON.parse(existing);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  leads.unshift(newMessage);
+  localStorage.setItem('devjena_portfolio_leads', JSON.stringify(leads));
+};
+
 export default function ContactForm({ onMessageSent }: ContactFormProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -55,18 +69,7 @@ export default function ContactForm({ onMessageSent }: ContactFormProps) {
         })
       };
 
-      // Save to localStorage
-      const existing = localStorage.getItem('devjena_portfolio_leads');
-      let leads: ContactMessage[] = [];
-      if (existing) {
-        try {
-          leads = JSON.parse(existing);
-        } catch (err) {
-          console.error(err);
-        }
-      }
-      leads.unshift(newMessage);
-      localStorage.setItem('devjena_portfolio_leads', JSON.stringify(leads));
+      saveLeadToLocalStorage(newMessage);
 
       setIsSubmitting(false);
       setSuccess(true);
