@@ -9,6 +9,8 @@ const CHAPTERS = [
   { time: 24, label: "0:24 - Cinematic Color Grade" },
 ] as const;
 
+const SHOWREEL_VIDEO_URL = "https://assets.mixkit.co/videos/preview/mixkit-animation-of-a-futuristic-city-with-flying-cars-45037-large.mp4";
+
 type ShowreelTab = 'timeline' | 'grading' | 'audio';
 
 export default function ShowreelPlayer() {
@@ -29,7 +31,7 @@ export default function ShowreelPlayer() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const videoUrl = "https://assets.mixkit.co/videos/preview/mixkit-animation-of-a-futuristic-city-with-flying-cars-45037-large.mp4";
+  const videoUrl = SHOWREEL_VIDEO_URL;
 
   useEffect(() => {
     const video = videoRef.current;
